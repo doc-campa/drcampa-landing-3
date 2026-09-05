@@ -66,8 +66,8 @@
       "cta_tertiary_href": "",
       "style": {
         "scale": "compatto",
-        "bg": "#0714a6",
-        "accent": "#ff2d96",
+        "bg": "#1F1A0D",
+        "accent": "#D9A21B",
         "text": "#ffffff"
       },
       "video_player_poster": {
@@ -110,7 +110,7 @@
         }
       ],
       "style": {
-        "bg": "#0b1fd4",
+        "bg": "#14110A",
         "accent": "#ffffff",
         "text": "#ffffff"
       },
@@ -213,7 +213,7 @@
       "style": {
         "bg": "#ffffff",
         "text": "#000000",
-        "accent": "#c2126f"
+        "accent": "#8A6410"
       }
     },
     {
@@ -265,8 +265,8 @@
         }
       ],
       "style": {
-        "bg": "#0714a6",
-        "accent": "#ff2d96",
+        "bg": "#1F1A0D",
+        "accent": "#D9A21B",
         "text": "#ffffff"
       }
     },
@@ -314,8 +314,8 @@
         }
       ],
       "style": {
-        "bg": "#0b1fd4",
-        "accent": "#ff2d96"
+        "bg": "#14110A",
+        "accent": "#D9A21B"
       },
       "eyebrow": "",
       "cta_label": "See all results @dottcampa_chirurgoplastico"
@@ -525,8 +525,8 @@
         }
       ],
       "style": {
-        "bg": "#0714a6",
-        "accent": "#ff2d96",
+        "bg": "#1F1A0D",
+        "accent": "#D9A21B",
         "text": "#F7F3EC"
       },
       "hide_accordion": true
@@ -557,8 +557,8 @@
       "row_b": [],
       "footnote": "*All data comes from internal surveys and clinical records of Studio Campa patients.",
       "style": {
-        "bg": "#0b1fd4",
-        "accent": "#ff2d96"
+        "bg": "#14110A",
+        "accent": "#D9A21B"
       }
     },
     {
@@ -639,8 +639,8 @@
       ],
       "footer_note": "",
       "style": {
-        "bg": "#0714a6",
-        "accent": "#ff2d96",
+        "bg": "#1F1A0D",
+        "accent": "#D9A21B",
         "text": "#ffffff",
         "scale": "compatto"
       },
