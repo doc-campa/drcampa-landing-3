@@ -1,0 +1,703 @@
+{
+  "site": {
+    "title": "Medicina Estetica — Dr. Domenico Campa",
+    "meta_description": "Filler, botox, biorivitalizzazione e trattamenti estetici del viso con il Dr. Domenico Campa: valutazione clinica, simulazione del risultato e percorsi su misura.",
+    "logo_text": "",
+    "colors": {
+      "primary": "#000000"
+    },
+    "logo_url": "/images/1781327933758-logo-sito-campa-2.svg"
+  },
+  "nav": {
+    "links": [
+      {
+        "label": "CHI SIAMO ",
+        "href": "#home"
+      },
+      {
+        "label": "recensioni",
+        "href": "#recensioni"
+      },
+      {
+        "label": "cosa ti spaventa",
+        "href": "#risvegli"
+      },
+      {
+        "label": "risultati",
+        "href": "#risultati-prima-dopo"
+      },
+      {
+        "label": "trattamenti",
+        "href": "#trattamenti"
+      }
+    ],
+    "phone_label": "Chiama",
+    "phone_href": "tel:+393332204059",
+    "cta_label": "Prenota Subito",
+    "cta_href": "#prenota"
+  },
+  "sections": [
+    {
+      "type": "hero",
+      "bg_image": {
+        "desktop": "/images/1786210388098-sfondo-landing-2-5.jpg",
+        "mobile": "/images/1786210392601-landing-due-campa-mobile.jpg"
+      },
+      "watermark": "",
+      "headline_pre": "\"Be the best version",
+      "headline_main": "of",
+      "headline_accent": "Yourself",
+      "subtitle_em": "",
+      "subtitle": "Ogni persona ha caratteristiche anatomiche, proporzioni ed esigenze uniche. Per\nquesto non crediamo nei trattamenti standardizzati, ma in un percorso costruito\nesclusivamente su misura. Perché il risultato migliore è quello che valorizza la tua\nbellezza, senza trasformarla.Dott. Campa",
+      "cta_label": "Prenota la consulenza",
+      "cta_href": "#prenota",
+      "mission_label_strong": "LA NOSTRA MISSIONE:",
+      "mission_label_text": "AIUTRARE 15 MILA PERSONE A DIVENTARE LA VERSIONE MIGLIORE DI SE ENTRO IL 2030",
+      "mission_percent": 63,
+      "mission_figure": "> 10.900  Percorsi Completati",
+      "mission_sub_a": "",
+      "mission_sub_b": "",
+      "video_player_url": "https://youtu.be/xENCDd0-ocg",
+      "cta_price_compare": "",
+      "cta_secondary_label": "",
+      "cta_secondary_href": "#prenota",
+      "cta_secondary_hint": "Consulenza in studio o online, senza impegno.",
+      "cta_tertiary_label": "",
+      "cta_tertiary_href": "",
+      "style": {
+        "scale": "compatto",
+        "bg": "#0714a6",
+        "accent": "#ff2d96",
+        "text": "#ffffff"
+      },
+      "video_player_poster": {
+        "desktop": "/images/1783029079836-sfondo-video.png",
+        "mobile": ""
+      },
+      "mobile_title_gap": null,
+      "bg_zoom": "",
+      "bg_zoom_mobile": "",
+      "bg_position": "",
+      "bg_position_mobile": "",
+      "play_x": "",
+      "play_y": "83",
+      "player_width": "",
+      "player_ratio": "12/10",
+      "title_offset": null
+    },
+    {
+      "type": "testimonials",
+      "id": "recensioni",
+      "title_a": "La Vostra",
+      "title_italic": "Fiducia",
+      "items": [
+        {
+          "name": "Grazia Pisani",
+          "date": "7 mesi fa",
+          "text_strong": "",
+          "text": "Ho effettuato un filler correttivo dal dottor Campa, sono stata da lui per la prima volta. Che dire, lui e il suo staff sono molto dolci e gentili, sanno metterti a tuo agio dal primo momento. Risultato naturale ed elegante."
+        },
+        {
+          "name": "Sara Esposito",
+          "date": "3 mesi fa",
+          "text_strong": "",
+          "text": "Mi sono affidata al Dottor Campa per un filler alle labbra e non potrei essere più felice della scelta fatta. Fin dalla prima visita mi sono sentita ascoltata e seguita con attenzione. Risultato naturale e armonioso."
+        },
+        {
+          "name": "Valentina De Liso",
+          "date": "5 mesi fa",
+          "text_strong": "",
+          "text": "Il dottor Campa ha trasformato una semplice iniezione in un momento sorprendentemente speciale: preciso, delicato e con un senso estetico che fa sentire subito a proprio agio."
+        },
+        {
+          "name": "Claudia Leonardi",
+          "date": "3 mesi fa",
+          "text_strong": "Prima esperienza dal doc Campa positivissima!",
+          "text": "Dottore super professionale ma soprattutto una persona squisita. Le ragazze dello staff gentilissime, sono davvero soddisfatta del risultato ottenuto, ve lo consiglio vivamente."
+        },
+        {
+          "name": "Bruna Tarantino",
+          "date": "5 mesi fa",
+          "text_strong": "Dott. Domenico Campa: un nome, una garanzia.",
+          "text": "Professionalità, precisione e umanità sono solo alcune delle qualità che lo distinguono. Lo studio è sempre accogliente e curato in ogni dettaglio."
+        },
+        {
+          "name": "Lucrezia Stacchini",
+          "date": "5 mesi fa",
+          "text_strong": "Impossibile descrivere il dottore e il suo staff con una parola.",
+          "text": "Dico solo che da quando li ho conosciuti mi fido solo di loro. Personale attento al dettaglio e percorso clinico curato in ogni passaggio."
+        },
+        {
+          "name": "Felicya Salcino",
+          "date": "3 mesi fa",
+          "text_strong": "A parer mio è il migliore in assoluto.",
+          "text": "Oltre ad essere super professionale è anche simpaticissimo e ti mette subito a tuo agio. Lo staff è gentile e accogliente, lo consiglio senza esitazioni."
+        },
+        {
+          "name": "Federica Raimo",
+          "date": "5 mesi fa",
+          "text_strong": "",
+          "text": "Oggi posso sorridere alla vita con gratitudine e serenità, ed è grazie al Dottor Campa. Non esistono davvero parole sufficienti per descrivere la sua straordinaria professionalità e umanità."
+        },
+        {
+          "name": "Nunzia Landolfo",
+          "date": "5 mesi fa",
+          "text_strong": "",
+          "text": "Sono stata per la prima volta dal dottore ed inizialmente, a causa di un percorso non andato al meglio in passato, avevo non poche remore. Il dottor Campa e il suo staff mi hanno messo subito a mio agio. Risultato eccellente."
+        }
+      ],
+      "subtitle": "Le testimonianze dei pazienti dello Studio Campa, molte dopo un trattamento estetico, pubblicate direttamente su **Google**. Tutte verificate.",
+      "reviews_rating": "5,0",
+      "reviews_count": "2.238",
+      "reviews_link": "https://www.google.com/search?sca_esv=423685a90e5df121&q=dottore+domenico+campa",
+      "review_badges": [
+        {
+          "service": "google",
+          "name": "Google",
+          "rating": "5,0",
+          "count": "2.238 recensioni",
+          "featured": "sì",
+          "href": "https://www.google.com/search?sca_esv=423685a90e5df121&q=dottore+domenico+campa"
+        }
+      ],
+      "style": {
+        "bg": "#ffffff",
+        "text": "#000000",
+        "accent": "#c2126f"
+      }
+    },
+    {
+      "type": "wake_videos",
+      "id": "risvegli",
+      "eyebrow": "",
+      "title_a": "Cosa ti spaventa <br> DEI<br>",
+      "title_accent": "Trattamenti Estetici?",
+      "subtitle": "Le risposte del Dott. Campa alle domande che ci fanno più spesso.",
+      "items": [
+        {
+          "video": {
+            "src": "",
+            "autoplay": true,
+            "loop": true,
+            "muted": true,
+            "controls": true
+          },
+          "poster": "",
+          "name": "Perdo la vista con il Rinofiller?",
+          "treatment": "",
+          "src": "",
+          "youtube": "https://youtube.com/shorts/1n0w5OnoONA"
+        },
+        {
+          "video": "",
+          "poster": "",
+          "name": "”Doc le vorrei così”",
+          "treatment": "",
+          "src": "",
+          "youtube": "https://youtube.com/shorts/yrUw9bhL94I"
+        }
+      ],
+      "style": {
+        "bg": "#0714a6",
+        "accent": "#ff2d96",
+        "text": "#ffffff"
+      }
+    },
+    {
+      "type": "before_after",
+      "id": "risultati-prima-dopo",
+      "title_a": "I NOSTRI",
+      "title_italic": "Risultati",
+      "subtitle": "",
+      "disclaimer": "Le immagini sono pubblicate previo consenso esplicito scritto dei pazienti, ai sensi del DPR n. 137/2012 e del codice deontologico FNOMCeO. Ogni caso clinico è unico: i risultati mostrati non costituiscono garanzia di esiti analoghi in altri pazienti.",
+      "items": [
+        {
+          "label": "FILLER LABBRA",
+          "image": "/images/1786200211810-whatsapp-image-2026-07-23-at-13.38.08--3-.jpeg"
+        },
+        {
+          "label": "filler labbra",
+          "image": "/images/1786210474451-whatsapp-image-2026-07-23-at-13.49.00--7-.jpeg"
+        },
+        {
+          "label": "filler labbra",
+          "image": "/images/1786210723743-whatsapp-image-2026-07-23-at-13.38.08.jpeg",
+          "caption": ""
+        },
+        {
+          "image": "/images/1786200288890-whatsapp-image-2026-07-23-at-13.49.00--6-.jpeg",
+          "label": "FILLER LABBRA"
+        },
+        {
+          "image": "/images/1786200318934-whatsapp-image-2026-07-23-at-13.49.00--3-.jpeg",
+          "label": "rinofiller"
+        },
+        {
+          "image": "/images/1786200328821-whatsapp-image-2026-07-23-at-13.49.00--2-.jpeg",
+          "label": "rinofiller"
+        },
+        {
+          "image": "/images/1786210614036-rino2.jpg",
+          "label": "rinofiller"
+        },
+        {
+          "image": "/images/1786210628726-whatsapp-image-2026-07-23-at-13.49.00--4-.jpeg",
+          "label": "botox",
+          "caption": ""
+        }
+      ],
+      "style": {
+        "bg": "#0b1fd4",
+        "accent": "#ff2d96"
+      },
+      "eyebrow": "",
+      "cta_label": "Scopri tutti i risultati @dottcampa_chirurgoplastico"
+    },
+    {
+      "type": "treatments_list",
+      "id": "trattamenti",
+      "title_a": "Zone da",
+      "title_italic": "Trattare",
+      "subtitle": "Medicina estetica del viso e del corpo: qui vedi dove agiscono i trattamenti e che cosa possiamo armonizzare.",
+      "footer_note": "Ogni trattamento è preceduto da una valutazione clinica. Prodotti riassorbibili, dosaggi personalizzati.",
+      "categories": [
+        {
+          "name": "Filler",
+          "icon": "syringe",
+          "treatments": [
+            {
+              "name": "Filler labbra",
+              "href": ""
+            },
+            {
+              "name": "Filler zigomi",
+              "href": ""
+            },
+            {
+              "name": "Rinofiller (filler naso)",
+              "href": ""
+            },
+            {
+              "name": "Filler mento",
+              "href": ""
+            },
+            {
+              "name": "Filler jawline",
+              "href": ""
+            },
+            {
+              "name": "Filler occhiaie",
+              "href": ""
+            },
+            {
+              "name": "Filler glutei",
+              "href": ""
+            }
+          ],
+          "description": "Acido ialuronico di ultima generazione: ridà volume dove è calato e ridisegna i contorni del viso. Risultato immediato, riassorbibile e sempre modulabile nel tempo."
+        },
+        {
+          "name": "Botox",
+          "icon": "sparkle",
+          "treatments": [
+            {
+              "name": "Rughe della fronte",
+              "href": ""
+            },
+            {
+              "name": "Rughe glabellari",
+              "href": ""
+            },
+            {
+              "name": "Zampe di gallina",
+              "href": ""
+            },
+            {
+              "name": "Gummy smile",
+              "href": ""
+            },
+            {
+              "name": "Bruxismo",
+              "href": ""
+            },
+            {
+              "name": "Iperidrosi (sudorazione eccessiva)",
+              "href": ""
+            }
+          ],
+          "description": "Rilassa i muscoli che formano le rughe d'espressione. Effetto naturale e temporaneo, senza stravolgere la mimica del viso."
+        },
+        {
+          "name": "Medicina Rigenerativa",
+          "icon": "heart",
+          "treatments": [
+            {
+              "name": "PRP",
+              "href": ""
+            },
+            {
+              "name": "PRF",
+              "href": ""
+            },
+            {
+              "name": "PRX T33",
+              "href": ""
+            },
+            {
+              "name": "Filler autologo",
+              "href": ""
+            }
+          ],
+          "description": "Trattamenti che stimolano i tessuti a rigenerarsi usando i fattori di crescita del paziente stesso."
+        },
+        {
+          "name": "Macchinari viso e corpo",
+          "icon": "legs",
+          "treatments": [
+            {
+              "name": "Exion Body",
+              "href": ""
+            },
+            {
+              "name": "Exion Face",
+              "href": ""
+            },
+            {
+              "name": "Exion RF",
+              "href": ""
+            },
+            {
+              "name": "Emtone",
+              "href": ""
+            },
+            {
+              "name": "Emsculpt Neo",
+              "href": ""
+            },
+            {
+              "name": "Carbossiterapia",
+              "href": ""
+            }
+          ],
+          "description": "Tecnologie non invasive per tonificare, rimodellare e migliorare la qualità della pelle, senza aghi."
+        },
+        {
+          "name": "Laser Viso",
+          "icon": "sparkle",
+          "treatments": [
+            {
+              "name": "Teleangectasie del volto",
+              "href": ""
+            },
+            {
+              "name": "Cicatrici chirurgiche e non",
+              "href": ""
+            },
+            {
+              "name": "Capillari corpo",
+              "href": ""
+            },
+            {
+              "name": "Macchie solari (viso e corpo)",
+              "href": ""
+            },
+            {
+              "name": "Cheratosi seborroiche e attiniche",
+              "href": ""
+            },
+            {
+              "name": "Angiomi (viso e corpo)",
+              "href": ""
+            },
+            {
+              "name": "Melasma",
+              "href": ""
+            },
+            {
+              "name": "Rosacea",
+              "href": ""
+            },
+            {
+              "name": "Acne e cicatrici da acne",
+              "href": ""
+            },
+            {
+              "name": "Discromie del contorno occhi",
+              "href": ""
+            },
+            {
+              "name": "Fotoringiovanimento",
+              "href": ""
+            },
+            {
+              "name": "Poichilodermia di Civatte",
+              "href": ""
+            },
+            {
+              "name": "Light and Bright",
+              "href": ""
+            },
+            {
+              "name": "Tatuaggi (+ Microblading)",
+              "href": ""
+            },
+            {
+              "name": "Porosità cutanea",
+              "href": ""
+            },
+            {
+              "name": "Epilazione viso e corpo",
+              "href": ""
+            },
+            {
+              "name": "Glacè Candela viso",
+              "href": ""
+            }
+          ],
+          "description": "Laser di ultima generazione per macchie, capillari, cicatrici e texture della pelle. Sedute brevi, ripresa immediata."
+        }
+      ],
+      "style": {
+        "bg": "#0714a6",
+        "accent": "#ff2d96",
+        "text": "#F7F3EC"
+      },
+      "hide_accordion": true
+    },
+    {
+      "type": "booking_ladder",
+      "id": "prenota",
+      "layout": "columns",
+      "eyebrow": "IL PRIMO PASSO",
+      "title_a": "",
+      "title_accent": "Scegli come iniziare .",
+      "subtitle": "Ogni viso parte da un punto diverso. Per questo puoi scegliere il percorso più adatto\nalle tue esigenze.",
+      "urgency": "Il modo più veloce per fissare la tua consulenza.",
+      "tiers": [
+        {
+          "name": "Dott. Campa",
+          "who": "",
+          "format": "",
+          "value_line": "Effettua il Trattamento con il Dott. Campa",
+          "price": "400€",
+          "icon": "",
+          "featured": "",
+          "free": false,
+          "cta_label": "Prenota subito!",
+          "cta_href": "https://calendly.com/segreteriacampa/consulenza",
+          "cta2_label": "",
+          "cta2_href": "",
+          "scarcity": "",
+          "photo": "/images/1783591439149-img-0220-2.webp",
+          "price_compare": "",
+          "features": "Valutazione completa dell'anatomia del viso\nAnalisi di proporzioni, volumi e asimmetrie\nIndividuazione delle aree da valorizzare\nDefinizione del trattamento più indicato\n⁠Piano di trattamento personalizzato\nIndicazioni su durata, controlli e piano di mantenimento"
+        },
+        {
+          "name": "Dott.ssa Mansi",
+          "who": "",
+          "format": "Piano di trattamento supervisionato dal Dott. Campa",
+          "value_line": "Effettua il Trattamento con la Dott.ssa Mansi, primo aiuto del Dott. Campa",
+          "price": "350€",
+          "icon": "",
+          "featured": "",
+          "free": false,
+          "cta_label": "Prenota subito!",
+          "cta_href": "https://calendly.com/segreteriacampa/consulenza-clone",
+          "cta2_label": "",
+          "cta2_href": "https://calendly.com/segreteriacampa/video-consulenza-con-dottoressa-federicamansi?month=2026-07",
+          "scarcity": "",
+          "photo": "/images/1783097121005-mansi-1-landing-2.png",
+          "features": "Valutazione completa dell'anatomia del viso\nAnalisi di proporzioni, volumi e asimmetrie\nIndividuazione delle aree da valorizzare\nDefinizione del trattamento più indicato\n⁠Piano di trattamento personalizzato\nIndicazioni su durata, controlli e piano di mantenimento",
+          "bottom_note": "",
+          "social_proof": ""
+        },
+        {
+          "name": "Compila il form",
+          "who": "",
+          "format": "",
+          "value_line": "Vuoi sapere qual è il trattamento giusto per te? Lasciaci i tuoi dati: ti ricontattiamo noi.",
+          "price": "",
+          "icon": "",
+          "featured": "",
+          "free": false,
+          "cta_label": "",
+          "cta_href": "https://calendly.com/segreteriacampa/beauty-consultant?month=2026-07",
+          "scarcity": "",
+          "photo": "",
+          "features": "",
+          "cta2_label": "",
+          "embed_form": true
+        },
+        {
+          "name": "Scrivici su WhatsApp",
+          "who": "Segreteria Studio Campa",
+          "format": "Chat · veloce e diretta",
+          "value_line": "Hai una domanda su un trattamento? Scrivici ora: è il modo più semplice per fare il primo passo.",
+          "price": "Gratis",
+          "icon": "whatsapp",
+          "featured": "",
+          "free": true,
+          "cta_label": "Scrivici su WhatsApp",
+          "cta_href": "https://wa.me/393332204059",
+          "cta2_label": ""
+        }
+      ],
+      "footer_note": "",
+      "style": {
+        "bg": "#0714a6",
+        "accent": "#ff2d96",
+        "text": "#ffffff",
+        "scale": "compatto"
+      },
+      "compare_features": [
+        {
+          "label": "Valutazione clinica completa",
+          "c1": "sì",
+          "c2": "sì",
+          "c3": ""
+        },
+        {
+          "label": "Analisi Fotografica e simulazione del risultato",
+          "c1": "sì",
+          "c2": "sì",
+          "c3": ""
+        },
+        {
+          "label": "Piano di trattamento personalizzato",
+          "c1": "sì",
+          "c2": "sì",
+          "c3": ""
+        },
+        {
+          "label": "Supporto dedicato e continuo",
+          "c1": "sì",
+          "c2": "",
+          "c3": ""
+        },
+        {
+          "label": "Orientamento sui trattamenti",
+          "c1": "sì",
+          "c2": "sì",
+          "c3": "sì"
+        },
+        {
+          "label": "Disponibile online e in studio",
+          "c1": "sì",
+          "c2": "sì",
+          "c3": "sì"
+        },
+        {
+          "label": "Consigli direttamente dal chirurgo",
+          "c1": "sì",
+          "c2": "sì",
+          "c3": "sì"
+        },
+        {
+          "label": "Accesso prioritario all'agenda",
+          "c1": "sì",
+          "c2": "",
+          "c3": "sì"
+        },
+        {
+          "label": "Colloquio conoscitivo",
+          "c1": "sì",
+          "c2": "sì",
+          "c3": ""
+        }
+      ]
+    }
+  ],
+  "footer": {
+    "about_text": "Studio di Chirurgia Plastica e Medicina Estetica. Trattamenti estetici del viso e del corpo con valutazione clinica, mano leggera e risultati naturali.",
+    "columns": [
+      {
+        "title": "Trattamenti",
+        "links": [
+          {
+            "label": "Filler",
+            "href": "#trattamenti"
+          },
+          {
+            "label": "Botox",
+            "href": "#trattamenti"
+          },
+          {
+            "label": "Biorivitalizzazione",
+            "href": "#trattamenti"
+          },
+          {
+            "label": "Laser viso",
+            "href": "#trattamenti"
+          }
+        ]
+      },
+      {
+        "title": "Studio",
+        "links": [
+          {
+            "label": "chi siamo",
+            "href": "#home"
+          },
+          {
+            "label": "Risultati",
+            "href": "#risultati"
+          },
+          {
+            "label": "Storie",
+            "href": "#storie"
+          },
+          {
+            "label": "Contatti",
+            "href": "#prenota"
+          }
+        ]
+      },
+      {
+        "title": "Contatti",
+        "links": [
+          {
+            "label": "+39 3332204059",
+            "href": "tel:+393332204059"
+          },
+          {
+            "label": "segreteriacampa@gmail.com",
+            "href": "mailto:segreteriacampa@gmail.com"
+          },
+          {
+            "label": "Instagram",
+            "href": "https://www.instagram.com/dottcampa_chirurgoplastico/"
+          },
+          {
+            "label": "TikTok",
+            "href": "https://www.tiktok.com/@dott.domenicocampa?_r=1&_t=ZN-97iu5VbwRJm"
+          },
+          {
+            "label": "YouTube",
+            "href": "https://www.youtube.com/@domenicocampa1670"
+          }
+        ]
+      }
+    ],
+    "bottom_left": "© 2026 Dr. Domenico Campa — P.IVA 10210391214",
+    "bottom_links": []
+  },
+  "topbar": {
+    "enabled": true,
+    "items": [
+      {
+        "label": "5,0 · 2.264 recensioni Google",
+        "href": "https://www.google.com/search?q=dottore+domenico+campa",
+        "new_tab": true,
+        "icon": "star",
+        "google_brand": true,
+        "strong_part": "2.238"
+      },
+      {
+        "label": "85 persone hanno prenotato negli ultimi 7 giorni",
+        "icon": "dot",
+        "strong_part": "85"
+      }
+    ],
+    "bg_color": "#000000"
+  }
+}
