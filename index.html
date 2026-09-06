@@ -3379,7 +3379,7 @@ body.js-ready section.testimonials.fx-in .test-badge:nth-child(3) .tb-stars { an
   <input type="email" name="email">
   <input type="tel" name="phone">
   <input type="text" name="treatment">
-  <select name="fiale"><option value="1"></option></select>
+  <select name="problema"><option value="Macchie solari"></option></select>
   <select name="sede"><option value="Napoli"></option></select>
   <input type="text" name="trattamento">
   <textarea name="message"></textarea>
@@ -3432,7 +3432,9 @@ const I18N = SITE_LANG==='en' ? {
   fInterest:'What are you interested in', fSelect:'Select\u2026', fMessage:'What are you interested in?',
   fMsgPh:'Write your request or your needs here\u2026',
   blSend:'Send request', blOk:'Request sent! We\u2019ll get back to you shortly.',
-  blVials:'How many vials would you like?', blCity:'Which clinic would you like?',
+  blVials:'What would you like to treat?',
+  blProblems:['Sun spots','Melasma','Capillaries and telangiectasia','Rosacea','Angiomas','Acne and acne scars','Scars','Keratosis','Poikiloderma of Civatte','Photorejuvenation','Skin porosity','Hair removal','Tattoos and microblading','Other / not sure'],
+  blCity:'Which clinic would you like?',
   blTreat:'Which treatment are you interested in?', blTreatPh:'Write here',
   fConsent:'I have read and accept the <a href="/privacy.html" target="_blank" rel="noopener">privacy policy</a> and consent to the processing of my data in order to be contacted.'
 } : {
@@ -3449,7 +3451,9 @@ const I18N = SITE_LANG==='en' ? {
   fInterest:'Cosa ti interessa', fSelect:'Seleziona\u2026', fMessage:'A cosa sei interessato/a?',
   fMsgPh:'Scrivi qui la tua richiesta o la tua esigenza..',
   blSend:'Invia richiesta', blOk:'Richiesta inviata! Ti ricontatteremo a breve.',
-  blVials:'Quante fiale vuoi effettuare?', blCity:'In quale sede vuoi effettuare il trattamento?',
+  blVials:'Quale problema vuoi trattare?',
+  blProblems:['Macchie solari','Melasma','Capillari e teleangectasie','Rosacea','Angiomi','Acne e cicatrici da acne','Cicatrici','Cheratosi','Poichilodermia di Civatte','Fotoringiovanimento','Porosità cutanea','Epilazione','Tatuaggi e microblading','Altro / non so'],
+  blCity:'In quale sede vuoi effettuare il trattamento?',
   blTreat:'A quale trattamento sei interessata?', blTreatPh:'Scrivi qui',
   fConsent:'Ho letto e accetto l\u2019<a href="/privacy.html" target="_blank" rel="noopener">informativa privacy</a> e acconsento al trattamento dei dati per essere ricontattato.'
 };
@@ -3487,14 +3491,14 @@ const FACE_GEO = {
 
 const FACE_TXT = (typeof SITE_LANG !== 'undefined' && SITE_LANG === 'en') ? {
   note:'Illustrative image. Treatable areas vary from person to person and are always defined during the consultation.',
-  filler:{ title:'Filler', sub:'Where it works', extra:'Buttock filler: body area',
-    labels:['Tear trough','Cheeks','Skin texture','Jawline','Nose filler','Lips','Chin'] },
+  filler:{ title:'Facial laser', sub:'Where it works', extra:'Capillaries, hair removal and poikiloderma: also body, neck and decolletage',
+    labels:['Under-eye discolouration','Sun spots','Porosity and texture','Acne scars','Capillaries and telangiectasia','Facial hair removal','Active acne'] },
   botox:{ title:'Botox', sub:'Where it works', extra:'Hyperhidrosis: body areas (underarms, hands)',
     labels:['Forehead lines','Foxy eye',"Crow's feet",'Masseters','Glabella','Bunny lines','Lip flip','Gummy smile','Trap botox'] }
 } : {
   note:'Immagine illustrativa. Le zone trattabili variano da persona a persona e vengono definite in sede di consulenza.',
-  filler:{ title:'Filler', sub:'Dove agisce', extra:'Filler glutei: zona corpo',
-    labels:['Occhiaie','Zigomi','Texture del viso','Jawline','Rinofiller','Labbra','Mento'] },
+  filler:{ title:'Laser viso', sub:'Dove agisce', extra:'Capillari, epilazione e poichilodermia: anche zone corpo, collo e décolleté',
+    labels:['Discromie contorno occhi','Macchie solari','Porosità e texture','Cicatrici da acne','Capillari e teleangectasie','Epilazione viso','Acne attiva'] },
   botox:{ title:'Botox', sub:'Dove agisce', extra:'Iperidrosi: zone corpo (ascelle, mani)',
     labels:['Rughe fronte','Foxy eye','Zampe di gallina','Masseteri','Glabella','Rughe naso','Lip flip','Gummy smile','Trap botox'] }
 };
@@ -3513,7 +3517,7 @@ function faceMapCard(key){
   </figure>`;
 }
 function faceMapHtml(){
-  return `<div class="tl-facemap reveal">${faceMapCard('filler')}${faceMapCard('botox')}</div>
+  return `<div class="tl-facemap reveal">${faceMapCard('filler')}</div>
     <p class="fm-note reveal">${esc(FACE_TXT.note)}</p>`;
 }
 
@@ -4353,9 +4357,9 @@ const templates = {
           <input type="text" name="lastName" placeholder="${I18N.fSurname}" required>
           <input type="email" name="email" placeholder="${I18N.fEmail}" required>
           <input type="tel" name="phone" placeholder="${I18N.fPhone}" required>
-          <select name="fiale" required>
+          <select name="problema" required>
             <option value="">${I18N.blVials}</option>
-            ${[1,2,3,4,5,6,7,8].map(n=>`<option value="${n}">${n}</option>`).join('')}
+            ${I18N.blProblems.map(v=>`<option value="${v}">${v}</option>`).join('')}
           </select>
           <select name="sede" required>
             <option value="">${I18N.blCity}</option>
@@ -5411,7 +5415,7 @@ function crmSend(fd, origine){
       telefono:    fd.phone     || '',
       consenso:    (fd.consenso === 'true' || fd.consenso === 'on' || fd.consenso === true),
       sito_web:    fd.sito_web  || '',
-      fiale:       fd.fiale     || '',
+      problema:    fd.problema  || '',
       sede:        fd.sede      || '',
       trattamento: fd.trattamento || fd.treatment || '',
       messaggio:   fd.message   || '',
