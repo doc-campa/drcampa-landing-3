@@ -44,15 +44,15 @@
         "mobile": "/images/1786210392601-landing-due-campa-mobile.jpg"
       },
       "watermark": "",
-      "headline_pre": "\"Be the best version",
-      "headline_main": "of",
-      "headline_accent": "Yourself",
+      "headline_pre": "Non si copre.",
+      "headline_main": "Si",
+      "headline_accent": "tratta.",
       "subtitle_em": "",
-      "subtitle": "Ogni persona ha caratteristiche anatomiche, proporzioni ed esigenze uniche. Per\nquesto non crediamo nei trattamenti standardizzati, ma in un percorso costruito\nesclusivamente su misura. Perché il risultato migliore è quello che valorizza la tua\nbellezza, senza trasformarla.Dott. Campa",
-      "cta_label": "Prenota la consulenza",
+      "subtitle": "Macchie, capillari, cicatrici, rossori o peli superflui non si affrontano tutti allo stesso modo. Il laser indicato dipende dal tipo di pelle, dalla profondità dell'inestetismo e dal periodo dell'anno. Per questo il percorso parte sempre da una valutazione, mai da un pacchetto.",
+      "cta_label": "Prenota la valutazione",
       "cta_href": "#prenota",
-      "mission_label_strong": "LA NOSTRA MISSIONE:",
-      "mission_label_text": "AIUTRARE 15 MILA PERSONE A DIVENTARE LA VERSIONE MIGLIORE DI SE ENTRO IL 2030",
+      "mission_label_strong": "IL NOSTRO APPROCCIO:",
+      "mission_label_text": "TRATTARE LA PELLE PARTENDO DALLA DIAGNOSI, NON DAL MACCHINARIO",
       "mission_percent": 63,
       "mission_figure": "> 10.900  Percorsi Completati",
       "mission_sub_a": "",
@@ -61,7 +61,7 @@
       "cta_price_compare": "",
       "cta_secondary_label": "",
       "cta_secondary_href": "#prenota",
-      "cta_secondary_hint": "Consulenza in studio o online, senza impegno.",
+      "cta_secondary_hint": "Valutazione in studio, con analisi della pelle e piano di sedute.",
       "cta_tertiary_label": "",
       "cta_tertiary_href": "",
       "style": {
@@ -146,7 +146,7 @@
           "text": "Sono stata per la prima volta dal dottore ed inizialmente, a causa di un percorso non andato al meglio in passato, avevo non poche remore. Il dottor Campa e il suo staff mi hanno messo subito a mio agio. Risultato eccellente."
         }
       ],
-      "subtitle": "Le testimonianze dei pazienti dello Studio Campa, molte dopo un trattamento estetico, pubblicate direttamente su **Google**. Tutte verificate.",
+      "subtitle": "Le testimonianze dei pazienti dello Studio Campa, pubblicate su Google.",
       "reviews_rating": "5,0",
       "reviews_count": "2.238",
       "reviews_link": "https://www.google.com/search?sca_esv=423685a90e5df121&q=dottore+domenico+campa",
@@ -170,8 +170,8 @@
       "type": "wake_videos",
       "id": "risvegli",
       "eyebrow": "",
-      "title_a": "Cosa ti spaventa <br> DEI<br>",
-      "title_accent": "Trattamenti Estetici?",
+      "title_a": "Cosa ti spaventa <br> DEL<br>",
+      "title_accent": "Laser?",
       "subtitle": "Le risposte del Dott. Campa alle domande che ci fanno più spesso.",
       "items": [
         {
@@ -208,7 +208,7 @@
       "id": "risultati-prima-dopo",
       "title_a": "I NOSTRI",
       "title_italic": "Risultati",
-      "subtitle": "",
+      "subtitle": "Casi trattati presso lo Studio Campa.",
       "disclaimer": "Le immagini sono pubblicate previo consenso esplicito scritto dei pazienti, ai sensi del DPR n. 137/2012 e del codice deontologico FNOMCeO. Ogni caso clinico è unico: i risultati mostrati non costituiscono garanzia di esiti analoghi in altri pazienti.",
       "items": [
         {
@@ -256,80 +256,123 @@
     {
       "type": "treatments_list",
       "id": "trattamenti",
-      "title_a": "Zone da",
-      "title_italic": "Trattare",
-      "subtitle": "Medicina estetica del viso e del corpo: qui vedi dove agiscono i trattamenti e che cosa possiamo armonizzare.",
-      "footer_note": "Ogni trattamento è preceduto da una valutazione clinica. Prodotti riassorbibili, dosaggi personalizzati.",
+      "title_a": "Cosa",
+      "title_italic": "Trattiamo",
+      "subtitle": "Laser e tecnologie per la qualità della pelle: qui vedi su quali inestetismi si interviene e come. Il trattamento indicato viene scelto in consulenza in base al fototipo e all'area.",
+      "footer_note": "Ogni trattamento è preceduto da una valutazione clinica. Numero di sedute e tempi di ripresa sono indicativi e variano in base al fototipo, all'area trattata e alla risposta individuale. Le cheratosi attiniche richiedono inquadramento medico dermatologico.",
       "categories": [
         {
-          "name": "Filler",
-          "icon": "syringe",
-          "treatments": [
-            {
-              "name": "Filler labbra",
-              "href": ""
-            },
-            {
-              "name": "Filler zigomi",
-              "href": ""
-            },
-            {
-              "name": "Rinofiller (filler naso)",
-              "href": ""
-            },
-            {
-              "name": "Filler mento",
-              "href": ""
-            },
-            {
-              "name": "Filler jawline",
-              "href": ""
-            },
-            {
-              "name": "Filler occhiaie",
-              "href": ""
-            },
-            {
-              "name": "Filler glutei",
-              "href": ""
-            }
-          ],
-          "description": "Acido ialuronico di ultima generazione: ridà volume dove è calato e ridisegna i contorni del viso. Risultato immediato, riassorbibile e sempre modulabile nel tempo."
-        },
-        {
-          "name": "Botox",
+          "name": "Macchie e discromie",
           "icon": "sparkle",
+          "description": "Accumuli di pigmento dovuti al sole, all'eta o a fattori ormonali. Il laser frammenta il pigmento, che viene poi eliminato dall'organismo. Il melasma richiede un approccio prudente e mantenimento nel tempo.",
           "treatments": [
             {
-              "name": "Rughe della fronte",
+              "name": "Macchie solari (lentigo) viso e corpo",
               "href": ""
             },
             {
-              "name": "Rughe glabellari",
+              "name": "Melasma",
               "href": ""
             },
             {
-              "name": "Zampe di gallina",
+              "name": "Discromie del contorno occhi",
               "href": ""
             },
             {
-              "name": "Gummy smile",
+              "name": "Poichilodermia di Civatte (collo e décolleté)",
               "href": ""
             },
             {
-              "name": "Bruxismo",
+              "name": "Cheratosi seborroiche",
               "href": ""
             },
             {
-              "name": "Iperidrosi (sudorazione eccessiva)",
+              "name": "Cheratosi attiniche",
               "href": ""
             }
-          ],
-          "description": "Rilassa i muscoli che formano le rughe d'espressione. Effetto naturale e temporaneo, senza stravolgere la mimica del viso."
+          ]
         },
         {
-          "name": "Medicina Rigenerativa",
+          "name": "Rossori e capillari",
           "icon": "heart",
+          "description": "Piccoli vasi dilatati e rossori persistenti. Il laser vascolare agisce sull'emoglobina e chiude il vaso, che viene riassorbito, senza toccare la pelle circostante.",
+          "treatments": [
+            {
+              "name": "Teleangectasie del volto",
+              "href": ""
+            },
+            {
+              "name": "Rosacea",
+              "href": ""
+            },
+            {
+              "name": "Capillari corpo e gambe",
+              "href": ""
+            },
+            {
+              "name": "Angiomi viso e corpo",
+              "href": ""
+            }
+          ]
+        },
+        {
+          "name": "Acne, cicatrici e texture",
+          "icon": "sparkle",
+          "description": "Lesioni attive, segni lasciati dall'acne e irregolarità della superficie cutanea. Si lavora sul rimodellamento del collagene per migliorare rilievo, colore e compattezza.",
+          "treatments": [
+            {
+              "name": "Acne attiva",
+              "href": ""
+            },
+            {
+              "name": "Cicatrici da acne",
+              "href": ""
+            },
+            {
+              "name": "Cicatrici chirurgiche e non chirurgiche",
+              "href": ""
+            },
+            {
+              "name": "Porosità cutanea",
+              "href": ""
+            },
+            {
+              "name": "Fotoringiovanimento",
+              "href": ""
+            },
+            {
+              "name": "Light and Bright",
+              "href": ""
+            }
+          ]
+        },
+        {
+          "name": "Epilazione e tatuaggi",
+          "icon": "sparkle",
+          "description": "Riduzione progressiva della ricrescita del pelo e rimozione del pigmento. Servono più sedute distanziate nel tempo, perché si agisce sui follicoli e sui pigmenti in fase attiva.",
+          "treatments": [
+            {
+              "name": "Epilazione viso",
+              "href": ""
+            },
+            {
+              "name": "Epilazione corpo",
+              "href": ""
+            },
+            {
+              "name": "Rimozione tatuaggi",
+              "href": ""
+            },
+            {
+              "name": "Rimozione microblading",
+              "href": ""
+            }
+          ]
+        },
+        {
+          "name": "Medicina rigenerativa",
+          "icon": "heart",
+          "description": "Trattamenti che non aggiungono volume ma stimolano la pelle a produrre il proprio collagene, usando fattori di crescita del paziente stesso. Si usano da soli o in abbinamento al laser.",
           "treatments": [
             {
               "name": "PRP",
@@ -347,19 +390,19 @@
               "name": "Filler autologo",
               "href": ""
             }
-          ],
-          "description": "Trattamenti che stimolano i tessuti a rigenerarsi usando i fattori di crescita del paziente stesso."
+          ]
         },
         {
-          "name": "Macchinari viso e corpo",
+          "name": "Tecnologie viso e corpo",
           "icon": "legs",
+          "description": "Tecnologie non invasive, diverse dal laser, che agiscono su tono, compattezza e rimodellamento. Senza aghi e senza tempi di recupero.",
           "treatments": [
             {
-              "name": "Exion Body",
+              "name": "Exion Viso",
               "href": ""
             },
             {
-              "name": "Exion Face",
+              "name": "Exion Body",
               "href": ""
             },
             {
@@ -378,83 +421,7 @@
               "name": "Carbossiterapia",
               "href": ""
             }
-          ],
-          "description": "Tecnologie non invasive per tonificare, rimodellare e migliorare la qualità della pelle, senza aghi."
-        },
-        {
-          "name": "Laser Viso",
-          "icon": "sparkle",
-          "treatments": [
-            {
-              "name": "Teleangectasie del volto",
-              "href": ""
-            },
-            {
-              "name": "Cicatrici chirurgiche e non",
-              "href": ""
-            },
-            {
-              "name": "Capillari corpo",
-              "href": ""
-            },
-            {
-              "name": "Macchie solari (viso e corpo)",
-              "href": ""
-            },
-            {
-              "name": "Cheratosi seborroiche e attiniche",
-              "href": ""
-            },
-            {
-              "name": "Angiomi (viso e corpo)",
-              "href": ""
-            },
-            {
-              "name": "Melasma",
-              "href": ""
-            },
-            {
-              "name": "Rosacea",
-              "href": ""
-            },
-            {
-              "name": "Acne e cicatrici da acne",
-              "href": ""
-            },
-            {
-              "name": "Discromie del contorno occhi",
-              "href": ""
-            },
-            {
-              "name": "Fotoringiovanimento",
-              "href": ""
-            },
-            {
-              "name": "Poichilodermia di Civatte",
-              "href": ""
-            },
-            {
-              "name": "Light and Bright",
-              "href": ""
-            },
-            {
-              "name": "Tatuaggi (+ Microblading)",
-              "href": ""
-            },
-            {
-              "name": "Porosità cutanea",
-              "href": ""
-            },
-            {
-              "name": "Epilazione viso e corpo",
-              "href": ""
-            },
-            {
-              "name": "Glacè Candela viso",
-              "href": ""
-            }
-          ],
-          "description": "Laser di ultima generazione per macchie, capillari, cicatrici e texture della pelle. Sedute brevi, ripresa immediata."
+          ]
         }
       ],
       "style": {
@@ -462,7 +429,7 @@
         "accent": "#D9A21B",
         "text": "#F7F3EC"
       },
-      "hide_accordion": true
+      "hide_accordion": false
     },
     {
       "type": "booking_ladder",
@@ -471,8 +438,8 @@
       "eyebrow": "IL PRIMO PASSO",
       "title_a": "",
       "title_accent": "Scegli come iniziare .",
-      "subtitle": "Ogni viso parte da un punto diverso. Per questo puoi scegliere il percorso più adatto\nalle tue esigenze.",
-      "urgency": "Il modo più veloce per fissare la tua consulenza.",
+      "subtitle": "Ogni pelle parte da un punto diverso. La valutazione serve a capire quale tecnologia è indicata, quante sedute servono e in quale periodo dell'anno conviene iniziare.",
+      "urgency": "Il modo più veloce per fissare la tua valutazione.",
       "tiers": [
         {
           "name": "Dott. Campa",
@@ -526,7 +493,8 @@
           "photo": "",
           "features": "",
           "cta2_label": "",
-          "embed_form": true
+          "embed_form": true,
+          "subtitle": "Non sai da dove partire? Lasciaci i tuoi dati: ti ricontattiamo noi."
         },
         {
           "name": "Scrivici su WhatsApp",
