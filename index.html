@@ -2022,7 +2022,7 @@ section.testimonials .test-stars { color:#F5A623 !important; }
 :root[data-theme="light"] .fm-art .fm-photo{ filter:none; opacity:.9; }
 .fm-art .fm-lead{ fill:none; stroke:#D9A21B; stroke-width:3; opacity:.85; }
 .fm-art .fm-dot{ fill:#D9A21B; stroke:none; }
-.fm-lbl{ fill:currentColor; font-family:var(--font-sans); font-size:28px; font-weight:700; letter-spacing:1.4px; opacity:.9; }
+.fm-lbl{ fill:currentColor; font-family:var(--font-sans); font-size:22px; font-weight:700; letter-spacing:1.1px; opacity:.9; }
 .fm-extra{ margin:12px 0 0; padding-top:12px; text-align:center;
   border-top:1px solid rgba(255,255,255,.1); font-size:.8rem; opacity:.6; }
 .fm-note{ max-width:1120px; margin:0 auto 34px; text-align:center; font-size:.76rem; line-height:1.5; opacity:.5; }
@@ -2031,7 +2031,7 @@ section.testimonials .test-stars { color:#F5A623 !important; }
 @media (max-width:860px){
   .tl-facemap{ gap:16px; }
   .fm-card{ padding:20px 10px 16px; }
-  .fm-lbl{ font-size:46px; letter-spacing:1px; }
+  .fm-lbl{ font-size:36px; letter-spacing:.8px; }
   .fm-art .fm-dot{ r:20; }
   .fm-art .fm-lead{ stroke-width:4; }
   .fm-title{ font-size:1.4rem; }
@@ -3492,13 +3492,13 @@ const FACE_GEO = {
 const FACE_TXT = (typeof SITE_LANG !== 'undefined' && SITE_LANG === 'en') ? {
   note:'Illustrative image. Treatable areas vary from person to person and are always defined during the consultation.',
   filler:{ title:'Facial laser', sub:'Where it works', extra:'Capillaries, hair removal and poikiloderma: also body, neck and decolletage',
-    labels:['Under-eye discolouration','Sun spots','Porosity and texture','Acne scars','Capillaries and telangiectasia','Facial hair removal','Active acne'] },
+    labels:['Under-eye spots','Sun spots','Porosity & texture','Acne scars','Telangiectasia','Hair removal (face)','Active acne'] },
   botox:{ title:'Botox', sub:'Where it works', extra:'Hyperhidrosis: body areas (underarms, hands)',
     labels:['Forehead lines','Foxy eye',"Crow's feet",'Masseters','Glabella','Bunny lines','Lip flip','Gummy smile','Trap botox'] }
 } : {
   note:'Immagine illustrativa. Le zone trattabili variano da persona a persona e vengono definite in sede di consulenza.',
   filler:{ title:'Laser viso', sub:'Dove agisce', extra:'Capillari, epilazione e poichilodermia: anche zone corpo, collo e décolleté',
-    labels:['Discromie contorno occhi','Macchie solari','Porosità e texture','Cicatrici da acne','Capillari e teleangectasie','Epilazione viso','Acne attiva'] },
+    labels:['Discromie occhi','Macchie solari','Porosità e texture','Cicatrici da acne','Teleangectasie','Epilazione viso','Acne attiva'] },
   botox:{ title:'Botox', sub:'Dove agisce', extra:'Iperidrosi: zone corpo (ascelle, mani)',
     labels:['Rughe fronte','Foxy eye','Zampe di gallina','Masseteri','Glabella','Rughe naso','Lip flip','Gummy smile','Trap botox'] }
 };
