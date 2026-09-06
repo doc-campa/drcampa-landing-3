@@ -719,14 +719,14 @@ const FACE_GEO = {
 
 const FACE_TXT = (typeof SITE_LANG !== 'undefined' && SITE_LANG === 'en') ? {
   note:'Illustrative image. Treatable areas vary from person to person and are always defined during the consultation.',
-  filler:{ title:'Filler', sub:'Where it works', extra:'Buttock filler: body area',
-    labels:['Tear trough','Cheeks','Skin texture','Jawline','Nose filler','Lips','Chin'] },
+  filler:{ title:'Facial laser', sub:'Where it works', extra:'Capillaries, hair removal and poikiloderma: also body, neck and decolletage',
+    labels:['Under-eye discolouration','Sun spots','Porosity and texture','Acne scars','Capillaries and telangiectasia','Facial hair removal','Active acne'] },
   botox:{ title:'Botox', sub:'Where it works', extra:'Hyperhidrosis: body areas (underarms, hands)',
     labels:['Forehead lines','Foxy eye',"Crow's feet",'Masseters','Glabella','Bunny lines','Lip flip','Gummy smile','Trap botox'] }
 } : {
   note:'Immagine illustrativa. Le zone trattabili variano da persona a persona e vengono definite in sede di consulenza.',
-  filler:{ title:'Filler', sub:'Dove agisce', extra:'Filler glutei: zona corpo',
-    labels:['Occhiaie','Zigomi','Texture del viso','Jawline','Rinofiller','Labbra','Mento'] },
+  filler:{ title:'Laser viso', sub:'Dove agisce', extra:'Capillari, epilazione e poichilodermia: anche zone corpo, collo e d\u00e9collet\u00e9',
+    labels:['Discromie contorno occhi','Macchie solari','Porosit\u00e0 e texture','Cicatrici da acne','Capillari e teleangectasie','Epilazione viso','Acne attiva'] },
   botox:{ title:'Botox', sub:'Dove agisce', extra:'Iperidrosi: zone corpo (ascelle, mani)',
     labels:['Rughe fronte','Foxy eye','Zampe di gallina','Masseteri','Glabella','Rughe naso','Lip flip','Gummy smile','Trap botox'] }
 };
@@ -745,7 +745,7 @@ function faceMapCard(key){
   </figure>`;
 }
 function faceMapHtml(){
-  return `<div class="tl-facemap reveal">${faceMapCard('filler')}${faceMapCard('botox')}</div>
+  return `<div class="tl-facemap reveal">${faceMapCard('filler')}</div>
     <p class="fm-note reveal">${esc(FACE_TXT.note)}</p>`;
 }
 
@@ -2327,7 +2327,7 @@ const previewTemplates = {
           <input type="text" placeholder="Cognome" disabled>
           <input type="email" placeholder="Email" disabled>
           <input type="tel" placeholder="Telefono" disabled>
-          <select disabled><option>Quante fiale vuoi effettuare?</option></select>
+          <select disabled><option>Quale problema vuoi trattare?</option></select>
           <select disabled><option>In quale sede vuoi effettuare il trattamento?</option></select>
           <input type="text" placeholder="A quale trattamento sei interessata? \u2014 Scrivi qui" disabled>
           <label class="bl-consent"><input type="checkbox" disabled><span>Ho letto e accetto l\u2019informativa privacy\u2026</span></label>
