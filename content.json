@@ -48,7 +48,7 @@
       "headline_main": "Si",
       "headline_accent": "tratta.",
       "subtitle_em": "",
-      "subtitle": "Macchie, capillari, cicatrici, rossori o peli superflui non si affrontano tutti allo stesso modo. Il laser indicato dipende dal tipo di pelle, dalla profondità dell'inestetismo e dal periodo dell'anno. Per questo il percorso parte sempre da una valutazione, mai da un pacchetto.",
+      "subtitle": "Macchie, capillari, cicatrici, rossori o peli superflui non si affrontano tutti allo stesso modo. Il laser indicato dipende dal tipo di pelle, dalla profondità dell'inestetismo e dal periodo dell'anno. Per questo ogni percorso inizia da una valutazione personalizzata, per individuare la tecnologia e il protocollo più adatti alle caratteristiche della tua pelle.",
       "cta_label": "Prenota la valutazione",
       "cta_href": "#prenota",
       "mission_label_strong": "IL NOSTRO APPROCCIO:",
@@ -171,7 +171,7 @@
       "id": "risvegli",
       "eyebrow": "",
       "title_a": "Cosa ti spaventa <br> DEL<br>",
-      "title_accent": "Laser?",
+      "title_accent": "Laser?<br>Eliminalo",
       "subtitle": "Le risposte del Dott. Campa alle domande che ci fanno più spesso.",
       "items": [
         {
@@ -482,7 +482,7 @@
           "name": "Compila il form",
           "who": "",
           "format": "",
-          "value_line": "Vuoi sapere qual è il trattamento giusto per te? Lasciaci i tuoi dati: ti ricontattiamo noi.",
+          "value_line": "Raccontaci cosa vorresti migliorare: ti ricontattiamo noi con l'indicazione giusta.",
           "price": "",
           "icon": "",
           "featured": "",
