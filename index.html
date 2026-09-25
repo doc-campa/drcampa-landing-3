@@ -3380,8 +3380,8 @@ body.js-ready section.testimonials.fx-in .test-badge:nth-child(3) .tb-stars { an
   <input type="tel" name="phone">
   <input type="text" name="treatment">
   <select name="problema"><option value="Macchie solari"></option></select>
-  <select name="sede"><option value="Napoli"></option></select>
-  <input type="text" name="trattamento">
+  <select name="budget"><option value="Fino a 500 €"></option></select>
+  <input type="text" name="obiettivo">
   <textarea name="message"></textarea>
   <input type="text" name="consenso">
   <input type="text" name="sito_web">
@@ -3432,7 +3432,11 @@ const I18N = SITE_LANG==='en' ? {
   fInterest:'What are you interested in', fSelect:'Select\u2026', fMessage:'What are you interested in?',
   fMsgPh:'Write your request or your needs here\u2026',
   blSend:'Send request', blOk:'Request sent! We\u2019ll get back to you shortly.',
-  blVials:'What would you like to treat?',
+  blVials:'Which concern would you mainly like to treat?',
+  blBudget:'What would you like to invest in your skin?',
+  optBudgetLaser:['Up to \u20ac500','\u20ac500 \u2013 1,000','\u20ac1,000 \u2013 2,000','Over \u20ac2,000','I\u2019d rather discuss it in consultation'],
+  blObiettivo:'What would you like to get from the assessment?',
+  blObiettivoPh:'Tell us what you\u2019d like to improve',
   blProblems:['Sun spots','Melasma','Capillaries and telangiectasia','Rosacea','Angiomas','Acne and acne scars','Scars','Keratosis','Poikiloderma of Civatte','Photorejuvenation','Skin porosity','Hair removal','Tattoos and microblading','Other / not sure'],
   blCity:'Which clinic would you like?',
   blTreat:'Which treatment are you interested in?', blTreatPh:'Write here',
@@ -3451,7 +3455,11 @@ const I18N = SITE_LANG==='en' ? {
   fInterest:'Cosa ti interessa', fSelect:'Seleziona\u2026', fMessage:'A cosa sei interessato/a?',
   fMsgPh:'Scrivi qui la tua richiesta o la tua esigenza..',
   blSend:'Invia richiesta', blOk:'Richiesta inviata! Ti ricontatteremo a breve.',
-  blVials:'Quale problema vuoi trattare?',
+  blVials:'Qual \u00e8 l\u2019inestetismo che vorresti trattare principalmente?',
+  blBudget:'Quanto desideri destinare alla cura della tua pelle?',
+  optBudgetLaser:['Fino a 500 \u20ac','500 \u2013 1.000 \u20ac','1.000 \u2013 2.000 \u20ac','Oltre 2.000 \u20ac','Preferisco parlarne in consulenza'],
+  blObiettivo:'Cosa vorresti ottenere dalla valutazione?',
+  blObiettivoPh:'Scrivi qui cosa ti piacerebbe migliorare',
   blProblems:['Macchie solari','Melasma','Capillari e teleangectasie','Rosacea','Angiomi','Acne e cicatrici da acne','Cicatrici','Cheratosi','Poichilodermia di Civatte','Fotoringiovanimento','Porosità cutanea','Epilazione','Tatuaggi e microblading','Altro / non so'],
   blCity:'In quale sede vuoi effettuare il trattamento?',
   blTreat:'A quale trattamento sei interessata?', blTreatPh:'Scrivi qui',
@@ -4361,11 +4369,11 @@ const templates = {
             <option value="">${I18N.blVials}</option>
             ${I18N.blProblems.map(v=>`<option value="${v}">${v}</option>`).join('')}
           </select>
-          <select name="sede" required>
-            <option value="">${I18N.blCity}</option>
-            ${['Napoli','Milano','Bari','Catania'].map(c=>`<option value="${c}">${c}</option>`).join('')}
+          <select name="budget" required>
+            <option value="">${I18N.blBudget}</option>
+            ${I18N.optBudgetLaser.map(o=>`<option value="${esc(o)}">${esc(o)}</option>`).join('')}
           </select>
-          <input type="text" name="trattamento" placeholder="${I18N.blTreat} — ${I18N.blTreatPh}" required>
+          <input type="text" name="obiettivo" placeholder="${I18N.blObiettivo}" required>
           <label class="bl-consent"><input type="checkbox" name="consenso" value="true" required><span>${I18N.fConsent}</span></label>
           <input type="text" name="sito_web" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
           <button type="submit" class="bl-cta bl-cta--${tSlug}" data-tier="${esc(t.name||'')}" data-cta="form">${I18N.blSend}</button>
@@ -5380,8 +5388,19 @@ function animateNumber(el){
    L'invio a Netlify Forms resta la fonte primaria: se il CRM non
    risponde, il lead NON si perde e l'utente non vede errori.
    ========================================================== */
-var CRM_ENDPOINT = 'https://clone-calendly.vercel.app/api/registrazione';
+var CRM_ENDPOINT = '/.netlify/functions/lead';   /* ponte server-side verso GEMA: il token resta sul server */
 var CRM_ENABLED  = true;   /* metti false per staccare l'invio senza toccare altro */
+
+/* ID univoco e stabile della compilazione (richiesto da GEMA per evitare doppioni) */
+function crmExternalId(){
+  try{
+    var r = (window.crypto && crypto.randomUUID) ? crypto.randomUUID()
+          : (Date.now().toString(36) + '-' + Math.random().toString(36).slice(2,10));
+    return 'form-' + location.hostname.split('.')[0] + '-' + r;
+  }catch(e){
+    return 'form-' + Date.now();
+  }
+}
 
 function crmAttrib(){
   var K = 'dc_attrib';
@@ -5409,18 +5428,15 @@ function crmSend(fd, origine){
   try{
     var a = crmAttrib();
     var payload = {
-      nome:        fd.firstName || '',
-      cognome:     fd.lastName  || '',
+      externalId:  crmExternalId(),
+      firstName:   fd.firstName || '',
+      lastName:    fd.lastName  || '',
       email:       fd.email     || '',
-      telefono:    fd.phone     || '',
-      consenso:    (fd.consenso === 'true' || fd.consenso === 'on' || fd.consenso === true),
-      sito_web:    fd.sito_web  || '',
+      phone:       fd.phone     || '',
       problema:    fd.problema  || '',
-      sede:        fd.sede      || '',
-      trattamento: fd.trattamento || fd.treatment || '',
-      messaggio:   fd.message   || '',
-      origine:     origine      || '',
-      lingua:      (document.documentElement.getAttribute('lang') || 'it')
+      budget:      fd.budget    || '',
+      obiettivo:   fd.obiettivo || '',
+      origine:     origine      || ''
     };
     for(var k in a){ if(Object.prototype.hasOwnProperty.call(a,k)) payload[k] = a[k]; }
     return fetch(CRM_ENDPOINT, {
