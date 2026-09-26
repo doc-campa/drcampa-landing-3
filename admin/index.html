@@ -692,17 +692,40 @@ const BRANCH     = 'main';
    quindi si adatta da solo a tema chiaro e scuro).
    ========================================================== */
 const FACE_ART =
-  '<image class="fm-photo" href="/images/viso-lineart.png" x="380" y="0" width="706" height="834" preserveAspectRatio="xMidYMid meet"/>';
+  '<g class="fm-face">'+
+  /* ovale del viso */
+  '<path d="M733,155 C838,155 905,232 905,350 C905,470 845,600 733,625 C621,600 561,470 561,350 C561,232 628,155 733,155Z"/>'+
+  /* capelli */
+  '<path d="M561,330 C545,198 630,118 733,118 C836,118 921,198 905,330"/>'+
+  '<path d="M568,318 C538,432 548,524 566,586"/>'+
+  '<path d="M898,318 C928,432 918,524 900,586"/>'+
+  /* sopracciglia */
+  '<path d="M643,300 C667,284 700,285 717,296"/>'+
+  '<path d="M749,296 C766,285 799,284 823,300"/>'+
+  /* occhi chiusi */
+  '<path d="M648,344 C671,363 701,363 719,344"/>'+
+  '<path d="M747,344 C765,363 795,363 818,344"/>'+
+  /* naso */
+  '<path d="M733,368 L726,430 C726,441 741,444 750,436"/>'+
+  /* labbra */
+  '<path d="M698,478 C716,466 750,466 768,478 C750,493 716,493 698,478Z"/>'+
+  '<path d="M698,478 L768,478"/>'+
+  /* collo e spalle */
+  '<path d="M672,608 L672,690"/>'+
+  '<path d="M794,608 L794,690"/>'+
+  '<path d="M556,768 C598,700 658,690 672,688"/>'+
+  '<path d="M794,688 C808,690 868,700 910,768"/>'+
+'</g>';
 
 const FACE_GEO = {
   filler: [
-    ['M593,344 L410,290 L360,290', [[605,342]], 350,290,'end'],
-    ['M561,389 L410,390 L360,390', [[573,387]], 350,390,'end'],
-    ['M608,422 L410,490 L360,490', [[620,420],[810,420]], 350,490,'end'],
-    ['M577,542 L410,590 L360,590', [[589,540]], 350,590,'end'],
-    ['M722,376 L1050,330 L1096,330', [[710,378]], 1106,330,'start'],
-    ['M801,475 L1050,470 L1096,470', [[789,475]], 1106,470,'start'],
-    ['M722,568 L1050,610 L1096,610', [[710,566]], 1106,610,'start']
+    ['M660,350 L410,290 L360,290', [[660,350]], 350,290,'end'],
+    ['M640,400 L410,390 L360,390', [[640,400]], 350,390,'end'],
+    ['M648,455 L410,490 L360,490', [[648,455],[818,455]], 350,490,'end'],
+    ['M668,540 L410,590 L360,590', [[668,540]], 350,590,'end'],
+    ['M745,415 L1050,330 L1096,330', [[745,415]], 1106,330,'start'],
+    ['M760,468 L1050,470 L1096,470', [[760,468]], 1106,470,'start'],
+    ['M733,565 L1050,610 L1096,610', [[733,565]], 1106,610,'start']
   ],
   botox: [
     ['M656,150 L410,130 L360,130', [[668,148]], 350,130,'end'],
@@ -719,15 +742,15 @@ const FACE_GEO = {
 
 const FACE_TXT = (typeof SITE_LANG !== 'undefined' && SITE_LANG === 'en') ? {
   note:'Illustrative image. Treatable areas vary from person to person and are always defined during the consultation.',
-  filler:{ title:'Facial laser', sub:'Where it works', extra:'Capillaries, hair removal and poikiloderma: also body, neck and decolletage',
+  filler:{ title:'Facial laser', sub:'What we treat', extra:'Capillaries, hair removal and poikiloderma: also body, neck and decolletage',
     labels:['Under-eye spots','Sun spots','Porosity & texture','Acne scars','Telangiectasia','Hair removal (face)','Active acne'] },
-  botox:{ title:'Botox', sub:'Where it works', extra:'Hyperhidrosis: body areas (underarms, hands)',
+  botox:{ title:'Botox', sub:'What we treat', extra:'Hyperhidrosis: body areas (underarms, hands)',
     labels:['Forehead lines','Foxy eye',"Crow's feet",'Masseters','Glabella','Bunny lines','Lip flip','Gummy smile','Trap botox'] }
 } : {
   note:'Immagine illustrativa. Le zone trattabili variano da persona a persona e vengono definite in sede di consulenza.',
-  filler:{ title:'Laser viso', sub:'Dove agisce', extra:'Capillari, epilazione e poichilodermia: anche zone corpo, collo e d\u00e9collet\u00e9',
+  filler:{ title:'Laser viso', sub:'Cosa trattiamo', extra:'Capillari, epilazione e poichilodermia: anche zone corpo, collo e d\u00e9collet\u00e9',
     labels:['Discromie occhi','Macchie solari','Porosit\u00e0 e texture','Cicatrici da acne','Teleangectasie','Epilazione viso','Acne attiva'] },
-  botox:{ title:'Botox', sub:'Dove agisce', extra:'Iperidrosi: zone corpo (ascelle, mani)',
+  botox:{ title:'Botox', sub:'Cosa trattiamo', extra:'Iperidrosi: zone corpo (ascelle, mani)',
     labels:['Rughe fronte','Foxy eye','Zampe di gallina','Masseteri','Glabella','Rughe naso','Lip flip','Gummy smile','Trap botox'] }
 };
 
