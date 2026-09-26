@@ -3385,6 +3385,17 @@ body.js-ready section.testimonials.fx-in .test-badge:nth-child(3) .tb-stars { an
   <textarea name="message"></textarea>
   <input type="text" name="consenso">
   <input type="text" name="sito_web">
+  <input type="text" name="externalId">
+  <input type="text" name="origine">
+  <input type="text" name="utm_source">
+  <input type="text" name="utm_medium">
+  <input type="text" name="utm_campaign">
+  <input type="text" name="utm_content">
+  <input type="text" name="utm_term">
+  <input type="text" name="gclid">
+  <input type="text" name="fbclid">
+  <input type="text" name="referrer">
+  <input type="text" name="landing">
   <input name="bot-field">
 </form>
 <div class="topbar" id="topbar"></div>
@@ -5112,7 +5123,12 @@ function initBehaviors(){
       var lb = btn ? btn.textContent : '';
       if(btn){ btn.disabled = true; btn.textContent = '\u2026'; }
       var fd = Object.fromEntries(new FormData(f).entries());
-      crmSend(fd, 'scheda_prenotazione:' + (f.getAttribute('data-tier') || ''));
+      /* dati che la funzione server-side legge dalla submission */
+      fd.externalId = crmExternalId();
+      fd.origine    = 'scheda_prenotazione:' + (f.getAttribute('data-tier') || '');
+      var attr = crmAttrib();
+      for(var k in attr){ if(attr[k]) fd[k] = attr[k]; }
+      crmSend(fd, fd.origine);
       try{
         var res = await fetch('/', {
           method:'POST',
@@ -5411,8 +5427,12 @@ function animateNumber(el){
    L'invio a Netlify Forms resta la fonte primaria: se il CRM non
    risponde, il lead NON si perde e l'utente non vede errori.
    ========================================================== */
-var CRM_ENDPOINT = '/.netlify/functions/lead';   /* ponte server-side verso GEMA: il token resta sul server */
-var CRM_ENABLED  = true;   /* metti false per staccare l'invio senza toccare altro */
+/* L'invio a GEMA NON parte piu dal browser: lo fa la funzione server-side
+   netlify/functions/submission-created.mjs, attivata da Netlify Forms.
+   Qui restano solo i dati di attribuzione, che vengono allegati alla
+   submission e letti dalla funzione. */
+var CRM_ENDPOINT = '/.netlify/functions/lead';
+var CRM_ENABLED  = false;   /* handler server attivo: invio dal browser disattivato */
 
 /* ID univoco e stabile della compilazione (richiesto da GEMA per evitare doppioni) */
 function crmExternalId(){
