@@ -66,8 +66,8 @@
       "cta_tertiary_href": "",
       "style": {
         "scale": "compatto",
-        "bg": "#1F1A0D",
-        "accent": "#D9A21B",
+        "bg": "#122019",
+        "accent": "#1FA97A",
         "text": "#ffffff"
       },
       "video_player_poster": {
@@ -163,7 +163,7 @@
       "style": {
         "bg": "#ffffff",
         "text": "#000000",
-        "accent": "#8A6410"
+        "accent": "#0E6B4A"
       }
     },
     {
@@ -198,8 +198,8 @@
         }
       ],
       "style": {
-        "bg": "#1F1A0D",
-        "accent": "#D9A21B",
+        "bg": "#122019",
+        "accent": "#1FA97A",
         "text": "#ffffff"
       }
     },
@@ -247,8 +247,8 @@
         }
       ],
       "style": {
-        "bg": "#14110A",
-        "accent": "#D9A21B"
+        "bg": "#0B1712",
+        "accent": "#1FA97A"
       },
       "eyebrow": "",
       "cta_label": "Scopri tutti i risultati @dottcampa_chirurgoplastico"
@@ -425,8 +425,8 @@
         }
       ],
       "style": {
-        "bg": "#1F1A0D",
-        "accent": "#D9A21B",
+        "bg": "#122019",
+        "accent": "#1FA97A",
         "text": "#F7F3EC"
       },
       "hide_accordion": false
@@ -512,8 +512,8 @@
       ],
       "footer_note": "",
       "style": {
-        "bg": "#1F1A0D",
-        "accent": "#D9A21B",
+        "bg": "#122019",
+        "accent": "#1FA97A",
         "text": "#ffffff",
         "scale": "compatto"
       },
