@@ -26,9 +26,16 @@ function s(v, max) {
 }
 
 export const handler = async (event) => {
+  /* ---- DIAGNOSTICA: questa riga deve comparire a ogni invio del form ---- */
+  console.log('[GEMA] === funzione attivata ===');
+
   const URL_GEMA = process.env.GEMA_URL;
   const TOKEN    = process.env.GEMA_TOKEN;
   const SOURCE   = process.env.GEMA_SOURCE || 'laser';
+
+  console.log('[GEMA] config · URL:', URL_GEMA ? 'presente' : 'MANCANTE',
+              '· TOKEN:', TOKEN ? ('presente (' + String(TOKEN).length + ' caratteri)') : 'MANCANTE',
+              '· SOURCE:', SOURCE);
 
   if (!URL_GEMA || !TOKEN) {
     console.warn('[GEMA] variabili mancanti: invio saltato, la submission resta su Netlify Forms');
@@ -39,8 +46,10 @@ export const handler = async (event) => {
   try {
     const body = JSON.parse(event.body || '{}');
     d = (body.payload && body.payload.data) || body.data || {};
+    console.log('[GEMA] campi ricevuti da Netlify:', Object.keys(d).join(', ') || '(nessuno)');
   } catch (e) {
     console.error('[GEMA] payload Netlify non leggibile:', e.message);
+    console.error('[GEMA] primi 400 caratteri del body:', String(event.body || '').slice(0, 400));
     return { statusCode: 200, body: 'bad payload' };
   }
 
@@ -91,6 +100,8 @@ export const handler = async (event) => {
     console.warn('[GEMA] payload accorciato per rientrare nei 16 KB');
   }
 
+  console.log('[GEMA] payload in partenza:', raw.slice(0, 600));
+
   // ----- invio, con ritentativi sugli errori temporanei -----
   for (let i = 0; i < TENTATIVI; i++) {
     if (i > 0) await new Promise(r => setTimeout(r, 1500 * i));
@@ -108,6 +119,8 @@ export const handler = async (event) => {
       });
       clearTimeout(t);
       const testo = await res.text();
+
+      console.log('[GEMA] risposta HTTP', res.status, '·', testo.slice(0, 400));
 
       if (res.status === 201 || res.status === 200) {
         console.log('[GEMA] ok', res.status, '· externalId', payload.externalId, '· origine', payload.origine || '-');
