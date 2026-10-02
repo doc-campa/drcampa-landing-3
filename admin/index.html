@@ -1065,7 +1065,8 @@ const SECTION_SCHEMA = {
     ['disclaimer', 'Disclaimer in basso (opzionale)', 'textarea', 'Es: "Le immagini sono pubblicate con consenso esplicito dei pazienti ai sensi del DPR n. 137/2012. Ogni caso clinico è unico: i risultati possono variare."'],
     ['cta_label', 'Bottone Instagram (testo, non cliccabile)', 'text', 'Es: \"Scopri tutti i risultati su Instagram\". Bottone decorativo. Vuoto = niente bottone.'],
     ['items', 'Risultati', 'list-object', null, [
-      ['image', 'Foto risultato', 'image'],
+      ['image', 'Foto risultato', 'image', 'Se compili anche il link YouTube qui sotto, questa foto diventa l\u2019anteprima del video.'],
+      ['youtube', 'Link video YouTube (opzionale)', 'text', 'Incolla il link di un video o Short di YouTube: al posto della foto parte il video, muto e in automatico, con il pulsante audio. Vuoto = resta la foto.'],
       ['label', 'Testo pill (nome trattamento, opzionale)', 'text', 'Compare come etichetta in basso sulla foto. Vuoto = nessuna pill.'],
       ['caption', 'Testo sotto la foto (opzionale)', 'text', 'Compare subito sotto la foto. Vuoto = niente testo.']
     ]]
