@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#0B1712">
-<meta name="description" content="Macchie, capillari, cicatrici, acne e peli superflui: trattamenti laser con il Dr. Domenico Campa. Valutazione personalizzata e protocollo su misura.">
-<title>Laser Viso e Corpo — Dr. Domenico Campa</title>
+<meta name="description" content="Studio del Dr. Domenico Campa — Chirurgia estetica con ascolto, precisione e rispetto della naturalezza.">
+<title>Studio Dr. Campa</title>
 <link rel="icon" href="data:,">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1781,6 +1781,10 @@ section.testimonials .test-stars { color:#F5A623 !important; }
   background:var(--section-accent,#1FA97A); color:#1a1205;
   border:1px solid rgba(255,255,255,.2);
 }
+/* video dentro le card dei risultati: stesso ingombro della foto */
+.ba-shot .wv-yt, .ba-shot .ba-video-file{ position:absolute; inset:0; width:100%; height:100%; }
+.ba-shot .ba-video-file{ object-fit:cover; display:block; }
+.ba-shot .wv-audio{ right:8px; bottom:8px; width:34px; height:34px; }
 .ba-cap { text-align:center; display:flex; flex-direction:column; gap:3px; margin-top:2px; }
 .ba-cap-title { color:#fff; font-weight:700; font-size:.9rem; line-height:1.3; }
 .ba-cap-desc { color:rgba(255,255,255,.6); font-size:.78rem; line-height:1.45; }
@@ -4223,7 +4227,23 @@ const templates = {
   before_after(s){
     const cases = (s.items||[]).map((it)=>{
       const ph = `<div class="ba-empty"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Foto in arrivo</span></div>`;
-      const media = it.image ? img(it.image, it.label||'Risultato') : ph;
+      /* Video YouTube (Shorts inclusi): autoplay muto in loop, come la sezione video.
+         Il comportamento e' gia' gestito da initBehaviors, che cerca i blocchi .wv-yt. */
+      const ytid = ytId(it.youtube || '');
+      const vsrc = it.video ? (typeof it.video==='object' ? (it.video.src||'') : it.video) : '';
+      let media;
+      if(ytid){
+        const poster = it.image || `https://i.ytimg.com/vi/${esc(ytid)}/hqdefault.jpg`;
+        media = `<div class="wv-yt ba-video" data-yt="${esc(ytid)}" aria-label="${esc(it.label||'Risultato')}">
+             <img class="wv-yt-poster" src="${typeof poster==='string'?esc(poster):esc(poster.desktop||'')}" alt="${esc(it.label||'')}" loading="lazy">
+             <span class="wv-yt-shield"></span>
+             <button type="button" class="wv-audio is-muted" aria-label="Audio"><svg class="ic-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M11 5 6 9H3v6h3l5 4z"/><line x1="17" y1="9" x2="23" y2="15"/><line x1="23" y1="9" x2="17" y2="15"/></svg><svg class="ic-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M16 9a4 4 0 0 1 0 6"/><path d="M19 6a8 8 0 0 1 0 12"/></svg></button>
+           </div>`;
+      } else if(vsrc){
+        media = `<video class="ba-video-file" muted loop playsinline preload="none" data-src="${esc(vsrc)}"${it.image?` poster="${esc(typeof it.image==='string'?it.image:(it.image.desktop||''))}"`:''}></video>`;
+      } else {
+        media = it.image ? img(it.image, it.label||'Risultato') : ph;
+      }
       const pill = it.label ? `<span class="ba-tag ba-tag-after">${esc(it.label)}</span>` : '';
       const cap = it.caption ? `<div class="ba-cap"><span class="ba-cap-title">${richText(it.caption)}</span></div>` : '';
       return `
