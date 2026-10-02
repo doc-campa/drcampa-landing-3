@@ -167,43 +167,6 @@
       }
     },
     {
-      "type": "wake_videos",
-      "id": "risvegli",
-      "eyebrow": "",
-      "title_a": "Cosa ti spaventa <br> DEL<br>",
-      "title_accent": "Laser?<br>Eliminalo",
-      "subtitle": "Le risposte del Dott. Campa alle domande che ci fanno più spesso.",
-      "items": [
-        {
-          "video": {
-            "src": "",
-            "autoplay": true,
-            "loop": true,
-            "muted": true,
-            "controls": true
-          },
-          "poster": "",
-          "name": "Perdo la vista con il Rinofiller?",
-          "treatment": "",
-          "src": "",
-          "youtube": "https://youtube.com/shorts/1n0w5OnoONA"
-        },
-        {
-          "video": "",
-          "poster": "",
-          "name": "”Doc le vorrei così”",
-          "treatment": "",
-          "src": "",
-          "youtube": "https://youtube.com/shorts/yrUw9bhL94I"
-        }
-      ],
-      "style": {
-        "bg": "#122019",
-        "accent": "#1FA97A",
-        "text": "#ffffff"
-      }
-    },
-    {
       "type": "before_after",
       "id": "risultati-prima-dopo",
       "title_a": "I NOSTRI",
@@ -212,29 +175,12 @@
       "disclaimer": "Le immagini sono pubblicate previo consenso esplicito scritto dei pazienti, ai sensi del DPR n. 137/2012 e del codice deontologico FNOMCeO. Ogni caso clinico è unico: i risultati mostrati non costituiscono garanzia di esiti analoghi in altri pazienti.",
       "items": [
         {
-          "label": "FILLER LABBRA",
-          "image": "/images/1786200211810-whatsapp-image-2026-07-23-at-13.38.08--3-.jpeg"
+          "label": "acne",
+          "image": "/images/1790962704725-acne-prima-dopo.png"
         },
         {
-          "label": "filler labbra",
-          "image": "/images/1786210474451-whatsapp-image-2026-07-23-at-13.49.00--7-.jpeg"
-        },
-        {
-          "label": "filler labbra",
-          "image": "/images/1786210723743-whatsapp-image-2026-07-23-at-13.38.08.jpeg",
-          "caption": ""
-        },
-        {
-          "image": "/images/1786200288890-whatsapp-image-2026-07-23-at-13.49.00--6-.jpeg",
-          "label": "FILLER LABBRA"
-        },
-        {
-          "image": "/images/1786200318934-whatsapp-image-2026-07-23-at-13.49.00--3-.jpeg",
-          "label": "rinofiller"
-        },
-        {
-          "image": "/images/1786200328821-whatsapp-image-2026-07-23-at-13.49.00--2-.jpeg",
-          "label": "rinofiller"
+          "label": "melasma",
+          "image": "/images/1790962714480-melasma-prima-dopo.png"
         },
         {
           "image": "/images/1786210614036-rino2.jpg",
