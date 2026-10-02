@@ -183,13 +183,15 @@
           "image": "/images/1790962714480-melasma-prima-dopo.png"
         },
         {
-          "image": "/images/1786210614036-rino2.jpg",
-          "label": "rinofiller"
+          "image": "",
+          "label": "carbossi",
+          "youtube": "https://youtube.com/shorts/gr-XrFzVCu0?feature=share"
         },
         {
-          "image": "/images/1786210628726-whatsapp-image-2026-07-23-at-13.49.00--4-.jpeg",
-          "label": "botox",
-          "caption": ""
+          "image": "",
+          "label": "laser capillari",
+          "caption": "",
+          "youtube": "https://youtube.com/shorts/Kwd-JP0o194?feature=share"
         }
       ],
       "style": {
