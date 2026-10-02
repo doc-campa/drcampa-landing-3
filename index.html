@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#0B1712">
-<meta name="description" content="Studio del Dr. Domenico Campa — Chirurgia estetica con ascolto, precisione e rispetto della naturalezza.">
-<title>Studio Dr. Campa</title>
+<meta name="description" content="Macchie, capillari, cicatrici, acne e peli superflui: trattamenti laser con il Dr. Domenico Campa. Valutazione personalizzata e protocollo su misura.">
+<title>Laser Viso e Corpo — Dr. Domenico Campa</title>
 <link rel="icon" href="data:,">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1785,6 +1785,14 @@ section.testimonials .test-stars { color:#F5A623 !important; }
 .ba-shot .wv-yt, .ba-shot .ba-video-file{ position:absolute; inset:0; width:100%; height:100%; }
 .ba-shot .ba-video-file{ object-fit:cover; display:block; }
 .ba-shot .wv-audio{ right:8px; bottom:8px; width:34px; height:34px; }
+/* autoplay bloccato (tipico su iPhone): resta il poster e compare il tasto play */
+.wv-yt.needs-tap::after{
+  content:''; position:absolute; left:50%; top:50%; z-index:3;
+  width:64px; height:64px; margin:-32px 0 0 -32px; border-radius:50%;
+  background:rgba(0,0,0,.55) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ffffff'%3E%3Cpath d='M8 5v14l11-7z'/%3E%3C/svg%3E") center/26px no-repeat;
+  border:1.5px solid rgba(255,255,255,.7); pointer-events:none;
+}
+.wv-yt-shield{ cursor:pointer; }
 .ba-cap { text-align:center; display:flex; flex-direction:column; gap:3px; margin-top:2px; }
 .ba-cap-title { color:#fff; font-weight:700; font-size:.9rem; line-height:1.3; }
 .ba-cap-desc { color:rgba(255,255,255,.6); font-size:.78rem; line-height:1.45; }
@@ -5198,8 +5206,9 @@ function initBehaviors(){
 
   // ---- VIDEO YOUTUBE: autoplay muto in loop quando entrano nello schermo ----
   (function(){
-    var boxes = document.querySelectorAll('.wv-yt');
+    var boxes = Array.prototype.slice.call(document.querySelectorAll('.wv-yt'));
     if(!boxes.length) return;
+
     function load(box){
       if(box.dataset.loaded) return;
       var id = box.dataset.yt;
@@ -5212,16 +5221,50 @@ function initBehaviors(){
       f.setAttribute('allow','autoplay; encrypted-media; picture-in-picture');
       f.setAttribute('title', box.getAttribute('aria-label') || 'Video');
       f.setAttribute('tabindex','-1');
-      var poster = box.querySelector('.wv-yt-poster');
       box.insertBefore(f, box.firstChild);
-      setTimeout(function(){ if(poster) poster.style.opacity = '0'; }, 900);
       box.__frame = f;
+      /* mi metto in ascolto degli eventi del player e chiedo l'avvio */
+      f.addEventListener('load', function(){
+        try{ f.contentWindow.postMessage(JSON.stringify({event:'listening', id:id}), '*'); }catch(e){}
+        cmd(box, 'playVideo');
+      });
+      /* se dopo 3 secondi non e' partito (iPhone blocca l'autoplay), mostro il tasto play
+         e lascio il poster visibile: meglio una foto che un riquadro vuoto */
+      box.__timer = setTimeout(function(){
+        if(!box.classList.contains('is-playing')) box.classList.add('needs-tap');
+      }, 3000);
     }
+
     function cmd(box, func){
       if(!box.__frame || !box.__frame.contentWindow) return;
-      box.__frame.contentWindow.postMessage(JSON.stringify({event:'command', func:func, args:[]}), '*');
+      try{ box.__frame.contentWindow.postMessage(JSON.stringify({event:'command', func:func, args:[]}), '*'); }catch(e){}
     }
+
+    /* Il poster sparisce SOLO quando YouTube conferma che sta riproducendo.
+       Prima veniva tolto dopo 900ms a prescindere: su mobile restava il vuoto. */
+    window.addEventListener('message', function(e){
+      if(String(e.origin).indexOf('youtube') === -1) return;
+      var d;
+      try{ d = (typeof e.data === 'string') ? JSON.parse(e.data) : e.data; }catch(err){ return; }
+      if(!d || d.event !== 'onStateChange') return;
+      boxes.forEach(function(box){
+        if(box.__frame && box.__frame.contentWindow === e.source && d.info === 1){
+          box.classList.add('is-playing');
+          box.classList.remove('needs-tap');
+          clearTimeout(box.__timer);
+          var ps = box.querySelector('.wv-yt-poster');
+          if(ps) ps.style.opacity = '0';
+        }
+      });
+    });
+
     boxes.forEach(function(box){
+      /* tocco sul video: se l'autoplay e' stato bloccato (tipico su iPhone), parte qui */
+      var shield = box.querySelector('.wv-yt-shield');
+      if(shield) shield.addEventListener('click', function(){
+        if(!box.dataset.loaded) load(box);
+        cmd(box, 'playVideo');
+      });
       var btn = box.querySelector('.wv-audio');
       if(btn) btn.addEventListener('click', function(e){
         e.stopPropagation();
@@ -5238,6 +5281,7 @@ function initBehaviors(){
         }
       });
     });
+
     if('IntersectionObserver' in window){
       var io = new IntersectionObserver(function(entries){
         entries.forEach(function(en){
