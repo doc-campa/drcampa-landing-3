@@ -1783,6 +1783,7 @@ section.testimonials .test-stars { color:#F5A623 !important; }
 }
 /* video dentro le card dei risultati: stesso ingombro della foto */
 .ba-shot .wv-yt, .ba-shot .ba-video-file{ position:absolute; inset:0; width:100%; height:100%; }
+.ba-shot .wv-yt{ background:linear-gradient(160deg, rgba(31,169,122,.18), rgba(0,0,0,.6)); }
 .ba-shot .ba-video-file{ object-fit:cover; display:block; }
 .ba-shot .wv-audio{ right:8px; bottom:8px; width:34px; height:34px; }
 /* autoplay bloccato (tipico su iPhone): resta il poster e compare il tasto play */
@@ -4243,7 +4244,7 @@ const templates = {
       if(ytid){
         const poster = it.image || `https://i.ytimg.com/vi/${esc(ytid)}/hqdefault.jpg`;
         media = `<div class="wv-yt ba-video" data-yt="${esc(ytid)}" aria-label="${esc(it.label||'Risultato')}">
-             <img class="wv-yt-poster" src="${typeof poster==='string'?esc(poster):esc(poster.desktop||'')}" alt="${esc(it.label||'')}" loading="lazy">
+             <img class="wv-yt-poster" src="${typeof poster==='string'?esc(poster):esc(poster.desktop||'')}" alt="${esc(it.label||'')}" loading="lazy" data-yt-fallback="${esc(ytid)}" onerror="(function(im){var s=['maxresdefault','sddefault','mqdefault','default'];im.__i=(im.__i||0);if(im.__i<s.length){im.src='https://i.ytimg.com/vi/'+im.dataset.ytFallback+'/'+s[im.__i++]+'.jpg';}else{im.style.display='none';}})(this)">
              <span class="wv-yt-shield"></span>
              <button type="button" class="wv-audio is-muted" aria-label="Audio"><svg class="ic-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M11 5 6 9H3v6h3l5 4z"/><line x1="17" y1="9" x2="23" y2="15"/><line x1="23" y1="9" x2="17" y2="15"/></svg><svg class="ic-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M16 9a4 4 0 0 1 0 6"/><path d="M19 6a8 8 0 0 1 0 12"/></svg></button>
            </div>`;
@@ -5230,9 +5231,13 @@ function initBehaviors(){
       });
       /* se dopo 3 secondi non e' partito (iPhone blocca l'autoplay), mostro il tasto play
          e lascio il poster visibile: meglio una foto che un riquadro vuoto */
+      /* su dispositivi touch l'autoplay e' quasi sempre bloccato: mostro subito il tasto play,
+         cosi' non si resta mai davanti a un riquadro apparentemente vuoto */
+      var touch = false;
+      try{ touch = window.matchMedia('(hover: none)').matches; }catch(e){}
       box.__timer = setTimeout(function(){
         if(!box.classList.contains('is-playing')) box.classList.add('needs-tap');
-      }, 3000);
+      }, touch ? 600 : 3000);
     }
 
     function cmd(box, func){
