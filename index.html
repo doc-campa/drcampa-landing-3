@@ -5218,7 +5218,8 @@ function initBehaviors(){
       var f = document.createElement('iframe');
       f.src = 'https://www.youtube-nocookie.com/embed/' + id +
         '?autoplay=1&mute=1&loop=1&playlist=' + id +
-        '&controls=0&modestbranding=1&rel=0&iv_load_policy=3&playsinline=1&disablekb=1&fs=0&enablejsapi=1';
+        '&controls=0&modestbranding=1&rel=0&iv_load_policy=3&playsinline=1&disablekb=1&fs=0&enablejsapi=1' +
+        '&origin=' + encodeURIComponent(location.origin);
       f.setAttribute('allow','autoplay; encrypted-media; picture-in-picture');
       f.setAttribute('title', box.getAttribute('aria-label') || 'Video');
       f.setAttribute('tabindex','-1');
@@ -5231,13 +5232,21 @@ function initBehaviors(){
       });
       /* se dopo 3 secondi non e' partito (iPhone blocca l'autoplay), mostro il tasto play
          e lascio il poster visibile: meglio una foto che un riquadro vuoto */
-      /* su dispositivi touch l'autoplay e' quasi sempre bloccato: mostro subito il tasto play,
-         cosi' non si resta mai davanti a un riquadro apparentemente vuoto */
+      /* Comportamento esplicito, senza dipendere dagli eventi del player:
+         - desktop: l'autoplay muto funziona, quindi dopo un attimo tolgo il poster
+         - touch: l'autoplay e' bloccato, quindi lascio il poster e mostro il tasto play */
       var touch = false;
       try{ touch = window.matchMedia('(hover: none)').matches; }catch(e){}
       box.__timer = setTimeout(function(){
-        if(!box.classList.contains('is-playing')) box.classList.add('needs-tap');
-      }, touch ? 600 : 3000);
+        if(box.classList.contains('is-playing')) return;
+        if(touch){
+          box.classList.add('needs-tap');
+        } else {
+          box.classList.add('is-playing');
+          var ps = box.querySelector('.wv-yt-poster');
+          if(ps) ps.style.opacity = '0';
+        }
+      }, touch ? 600 : 1200);
     }
 
     function cmd(box, func){
@@ -5269,6 +5278,10 @@ function initBehaviors(){
       if(shield) shield.addEventListener('click', function(){
         if(!box.dataset.loaded) load(box);
         cmd(box, 'playVideo');
+        box.classList.remove('needs-tap');
+        box.classList.add('is-playing');
+        var ps = box.querySelector('.wv-yt-poster');
+        if(ps) ps.style.opacity = '0';
       });
       var btn = box.querySelector('.wv-audio');
       if(btn) btn.addEventListener('click', function(e){
