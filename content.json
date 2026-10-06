@@ -403,7 +403,10 @@
           "cta2_label": "",
           "cta2_href": "",
           "scarcity": "",
-          "photo": "",
+          "photo": {
+            "desktop": "/images/1791318644886-1783076406610-foto-staff-landing-5.webp",
+            "mobile": "/images/1791318650223-1783076406610-foto-staff-landing-5.webp"
+          },
           "price_compare": "",
           "features": "Ascolto delle tue esigenze e degli inestetismi che vuoi migliorare\nIndividuazione preliminare delle aree da trattare\nOrientamento tra laser e tecnologie disponibili\nIndicazione del percorso di valutazione più adatto\nRevisione finale con il Dott. Salzillo\nEsclusivamente online"
         },
@@ -421,7 +424,10 @@
           "cta2_label": "",
           "cta2_href": "",
           "scarcity": "",
-          "photo": "/images/1783097121005-mansi-1-landing-2.png",
+          "photo": {
+            "desktop": "/images/1791318663639-campa-dottsalzillo.webp",
+            "mobile": "/images/1791318668948-campa-dottsalzillo.webp"
+          },
           "features": "Valutazione clinica completa dell'inestetismo\nAnalisi approfondita di pelle e/o corpo\nIndividuazione delle cause e delle aree da trattare\nSelezione delle tecnologie più indicate\nPossibile combinazione di laser e macchinari differenti\nProtocollo personalizzato con numero e frequenza delle sedute\nOnline o in studio",
           "bottom_note": "",
           "social_proof": ""
