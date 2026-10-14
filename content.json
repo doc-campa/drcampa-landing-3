@@ -57,7 +57,7 @@
       "mission_figure": "> 1000  Percorsi Completati",
       "mission_sub_a": "",
       "mission_sub_b": "",
-      "video_player_url": "https://youtu.be/xENCDd0-ocg",
+      "video_player_url": "https://youtu.be/qzjdpa7v0Vo",
       "cta_price_compare": "",
       "cta_secondary_label": "",
       "cta_secondary_href": "#prenota",
@@ -70,10 +70,7 @@
         "accent": "#1FA97A",
         "text": "#ffffff"
       },
-      "video_player_poster": {
-        "desktop": "/images/1783029079836-sfondo-video.png",
-        "mobile": ""
-      },
+      "video_player_poster": "/images/1791993040105-consulenza-amichevole-in-ufficio.png",
       "mobile_title_gap": null,
       "bg_zoom": "",
       "bg_zoom_mobile": "",
