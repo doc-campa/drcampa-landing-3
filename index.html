@@ -3384,6 +3384,93 @@ body.js-ready section.testimonials.fx-in .test-badge:nth-child(3) .tb-stars { an
   background:#FBF9F4; color:#1B2433; border-color:rgba(20,28,46,.2);
 }
 
+/* ============================================================
+   BOOKING MODAL — apre la pagina di prenotazione in overlay
+   invece di portare l'utente fuori dal sito.
+   Su desktop: pannello centrato. Su mobile: schermo intero.
+   ============================================================ */
+.bk-modal{
+  position:fixed; inset:0; z-index:9800;
+  display:flex; align-items:center; justify-content:center;
+  background:rgba(10,22,26,.82);
+  backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+  padding:clamp(14px,3vw,44px);
+  opacity:0; pointer-events:none;
+  transition:opacity .25s var(--ease-out);
+}
+.bk-modal.is-open{ opacity:1; pointer-events:auto; }
+.bk-card{
+  position:relative; display:flex; flex-direction:column;
+  width:100%; max-width:900px; height:min(88vh, 860px);
+  background:#0B1712; color:#EDEAE3;
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:16px; overflow:hidden;
+  box-shadow:0 30px 80px -20px rgba(0,0,0,.65);
+  transform:translateY(14px) scale(.985);
+  transition:transform .3s var(--ease-spring);
+}
+.bk-modal.is-open .bk-card{ transform:none; }
+.bk-head{
+  flex:0 0 auto; display:flex; align-items:center; gap:12px;
+  padding:12px 14px; border-bottom:1px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,.04);
+}
+.bk-title{
+  flex:1 1 auto; min-width:0; margin:0;
+  font-family:'Bebas Neue',sans-serif; font-weight:400; letter-spacing:.04em;
+  font-size:1.12rem; line-height:1.2; color:#fff;
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
+.bk-close{
+  flex:0 0 auto; display:inline-flex; align-items:center; justify-content:center;
+  border:1px solid rgba(255,255,255,.22); background:rgba(255,255,255,.07);
+  color:inherit; cursor:pointer;
+  transition:background .2s, border-color .2s;
+}
+.bk-close{ width:34px; height:34px; border-radius:50%; padding:0; }
+.bk-close:hover{ background:rgba(255,255,255,.16); border-color:rgba(255,255,255,.4); }
+.bk-close:focus-visible, .bk-ext:focus-visible{ outline:2px solid #1FA97A; outline-offset:2px; }
+.bk-foot{
+  flex:0 0 auto; margin:0; padding:9px 14px;
+  border-top:1px solid rgba(255,255,255,.12); background:rgba(255,255,255,.04);
+  font-size:.74rem; letter-spacing:.01em; color:rgba(237,234,227,.62); text-align:center;
+}
+.bk-foot .bk-ext{ color:inherit; text-decoration:underline; text-underline-offset:2px; }
+.bk-foot .bk-ext:hover{ color:#1FA97A; }
+.bk-body{ position:relative; flex:1 1 auto; min-height:0; background:#0B1712; }
+.bk-body iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; display:block; }
+.bk-state{
+  position:absolute; inset:0; display:flex; flex-direction:column;
+  align-items:center; justify-content:center; gap:14px; text-align:center;
+  padding:28px; font-size:.88rem; color:rgba(237,234,227,.8);
+}
+.bk-state[hidden]{ display:none; }
+.bk-spin{
+  width:30px; height:30px; border-radius:50%;
+  border:2px solid rgba(255,255,255,.18); border-top-color:#1FA97A;
+  animation:bk-spin .8s linear infinite;
+}
+@keyframes bk-spin{ to{ transform:rotate(360deg); } }
+@media (prefers-reduced-motion:reduce){
+  .bk-spin{ animation:none; }
+  .bk-card{ transition:none; }
+}
+/* Su mobile il pannello diventa schermo intero: un flusso di prenotazione
+   dentro una finestrella da 300px non si usa. */
+@media (max-width:760px){
+  .bk-modal{ padding:0; }
+  .bk-card{ max-width:none; height:100%; border-radius:0; border:0; }
+}
+:root[data-theme="light"] .bk-card{ background:#FFFFFF; color:#1B2433; border-color:rgba(20,28,46,.14); }
+:root[data-theme="light"] .bk-head{ background:#F4F1EA; border-bottom-color:rgba(20,28,46,.12); }
+:root[data-theme="light"] .bk-title{ color:#1B2433; }
+:root[data-theme="light"] .bk-close{ background:rgba(20,28,46,.05); border-color:rgba(20,28,46,.18); }
+:root[data-theme="light"] .bk-foot{
+  background:#F4F1EA; border-top-color:rgba(20,28,46,.12); color:#5A6172;
+}
+:root[data-theme="light"] .bk-body{ background:#FFFFFF; }
+:root[data-theme="light"] .bk-state{ color:#5A6172; }
+
 /* ============ COOKIE BANNER (minimale) ============ */
 .ck-banner{
   position:fixed; left:16px; bottom:16px; z-index:9000;
@@ -4888,6 +4975,158 @@ function initVideoModal(){
 }
 
 /* ==========================================================
+   BOOKING MODAL — apre le pagine di prenotazione in overlay
+   ----------------------------------------------------------
+   Si aggancia da solo a tutti i link il cui dominio compare in
+   BOOKING_MODAL_HOSTS. Per aggiungerne uno (es. calendly.com)
+   basta scriverlo nell'elenco qui sotto: non serve altro.
+
+   Se il dominio ospite rifiuta di essere incorniciato
+   (header X-Frame-Options o Content-Security-Policy:
+   frame-ancestors), l'iframe resta bianco e dal lato del browser
+   non c'e' modo di accorgersene: l'evento "load" scatta identico.
+   Per questo la via d'uscita "Aprilo in una nuova scheda" resta
+   sempre visibile in fondo al pannello.
+   ========================================================== */
+var BOOKING_MODAL_HOSTS = ['clone-calendly.vercel.app'];
+
+/* Passa utm/gclid/fbclid alla pagina di prenotazione, cosi' il CRM
+   puo' attribuire l'appuntamento alla campagna. Lasciare false finche'
+   chi ha sviluppato la pagina non conferma che li accetta e li salva. */
+var BOOKING_PASS_UTM = false;
+
+function bookingModalHostMatches(href){
+  try{
+    var u = new URL(href, location.href);
+    if(u.protocol !== 'https:' && u.protocol !== 'http:') return false;
+    return BOOKING_MODAL_HOSTS.indexOf(u.hostname) !== -1;
+  }catch(e){ return false; }
+}
+
+function initBookingModal(){
+  if(!BOOKING_MODAL_HOSTS.length) return;
+
+  var modal = document.createElement('div');
+  modal.className = 'bk-modal';
+  modal.innerHTML =
+    '<div class="bk-card" role="dialog" aria-modal="true" aria-label="Prenotazione">' +
+      '<div class="bk-head">' +
+        '<h3 class="bk-title"></h3>' +
+        '<button class="bk-close" type="button" aria-label="Chiudi">' +
+          '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round">' +
+            '<line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/>' +
+          '</svg>' +
+        '</button>' +
+      '</div>' +
+      '<div class="bk-body">' +
+        '<div class="bk-state" data-bk-state>' +
+          '<div class="bk-spin" aria-hidden="true"></div>' +
+          '<span>Caricamento del calendario…</span>' +
+        '</div>' +
+      '</div>' +
+      '<p class="bk-foot">Non vedi il calendario? ' +
+        '<a class="bk-ext" target="_blank" rel="noopener" href="#">Aprilo in una nuova scheda</a>' +
+      '</p>' +
+    '</div>';
+  document.body.appendChild(modal);
+
+  var card    = modal.querySelector('.bk-card');
+  var titleEl = modal.querySelector('.bk-title');
+  var extEl   = modal.querySelector('.bk-ext');
+  var closeEl = modal.querySelector('.bk-close');
+  var bodyEl  = modal.querySelector('.bk-body');
+  var stateEl = modal.querySelector('[data-bk-state]');
+  var frame = null, lastFocus = null, openOrigin = null;
+
+  function buildUrl(href){
+    var u = new URL(href, location.href);
+    if(BOOKING_PASS_UTM && typeof crmAttrib === 'function'){
+      try{
+        var saved = crmAttrib() || {};
+        ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','gclid','fbclid']
+          .forEach(function(k){ if(saved[k] && !u.searchParams.has(k)) u.searchParams.set(k, saved[k]); });
+      }catch(e){}
+    }
+    return u;
+  }
+
+  function open(href, label){
+    var u;
+    try{ u = buildUrl(href); }catch(e){ return false; }
+    openOrigin = u.origin;
+    lastFocus = document.activeElement;
+
+    titleEl.textContent = label || 'Prenotazione';
+    extEl.href = u.href;
+
+    stateEl.hidden = false;
+
+    if(frame) frame.remove();
+    frame = document.createElement('iframe');
+    frame.title = label || 'Prenotazione';
+    frame.setAttribute('allow', 'clipboard-write; payment');
+    frame.addEventListener('load', function(){ stateEl.hidden = true; });
+    frame.src = u.href;
+    bodyEl.appendChild(frame);
+
+    modal.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+    closeEl.focus();
+    return true;
+  }
+
+  function close(){
+    if(!modal.classList.contains('is-open')) return;
+    modal.classList.remove('is-open');
+    document.body.style.overflow = '';
+    openOrigin = null;
+    setTimeout(function(){
+      if(frame){ frame.remove(); frame = null; }
+    }, 300);
+    if(lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+
+  /* Intercetta i click sui link di prenotazione. In cattura, cosi'
+     arriva prima del target="_blank". Ctrl/cmd-click e il tasto
+     centrale restano liberi di aprire la scheda, come da abitudine. */
+  document.addEventListener('click', function(e){
+    if(e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+    if(!a) return;
+    var href = a.getAttribute('href') || '';
+    if(!bookingModalHostMatches(href)) return;
+    var tier = a.closest('.bl-tier');
+    var nameEl = tier ? tier.querySelector('.bl-tier-name') : null;
+    var label = nameEl ? nameEl.textContent.trim() : (a.textContent || '').trim();
+    if(open(href, label)) e.preventDefault();
+  }, false);
+
+  closeEl.addEventListener('click', close);
+  modal.addEventListener('click', function(e){ if(e.target === modal) close(); });
+  card.addEventListener('click', function(e){ e.stopPropagation(); });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape') close();
+  });
+
+  /* Aggancio per chi sviluppa la pagina di prenotazione: se a fine
+     flusso esegue
+         window.parent.postMessage({ type: 'booking_confirmed' }, '*');
+     qui chiudiamo la finestra e registriamo la conversione.
+     Accettiamo solo messaggi dal dominio che abbiamo aperto noi. */
+  window.addEventListener('message', function(e){
+    if(!openOrigin || e.origin !== openOrigin) return;
+    var d = e.data;
+    var type = (d && (d.type || d.event)) || '';
+    if(type === 'booking_confirmed' || type === 'appointment_scheduled'){
+      try{ if(window.gtag) gtag('event','booking_confirmed',{ tier: titleEl.textContent }); }catch(err){}
+      try{ if(window.fbq) fbq('track','Schedule',{ content_name: titleEl.textContent }); }catch(err){}
+      close();
+    }
+    if(type === 'booking_close'){ close(); }
+  });
+}
+
+/* ==========================================================
    BEHAVIORS — safe animation system + nav + form
    ========================================================== */
 /* ==========================================================
@@ -5147,6 +5386,9 @@ function initBehaviors(){
 
   // ---- VIDEO MODAL ----
   initVideoModal();
+
+  // ---- BOOKING MODAL (prenotazioni in overlay) ----
+  initBookingModal();
 
   // ---- TOPBAR ROTATOR (una voce alla volta, ogni 4 secondi) ----
   initTopbarRotator();
