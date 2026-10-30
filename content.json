@@ -400,10 +400,7 @@
           "cta2_label": "",
           "cta2_href": "",
           "scarcity": "",
-          "photo": {
-            "desktop": "/images/1791318644886-1783076406610-foto-staff-landing-5.webp",
-            "mobile": "/images/1791318650223-1783076406610-foto-staff-landing-5.webp"
-          },
+          "photo": "/images/1793348571719-campa-dottssamelaniaealessia.webp",
           "price_compare": "",
           "features": "Ascolto delle tue esigenze e degli inestetismi che vuoi migliorare\nIndividuazione preliminare delle aree da trattare\nOrientamento tra laser e tecnologie disponibili\nIndicazione del percorso di valutazione più adatto\nRevisione finale con il Dott. Salzillo\nEsclusivamente online"
         },
@@ -421,7 +418,7 @@
           "cta2_label": "",
           "cta2_href": "",
           "scarcity": "",
-          "photo": "/images/1792583457181-campa-dottssamelaniasalzillo.webp",
+          "photo": "/images/1793348581928-campa-dottsalzillo.webp",
           "features": "Valutazione clinica completa dell'inestetismo\nAnalisi approfondita di pelle e/o corpo\nIndividuazione delle cause e delle aree da trattare\nSelezione delle tecnologie più indicate\nPossibile combinazione di laser e macchinari differenti\nProtocollo personalizzato con numero e frequenza delle sedute\nOnline o in studio",
           "bottom_note": "",
           "social_proof": ""
