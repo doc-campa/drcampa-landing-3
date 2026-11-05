@@ -4988,7 +4988,7 @@ function initVideoModal(){
    Per questo la via d'uscita "Aprilo in una nuova scheda" resta
    sempre visibile in fondo al pannello.
    ========================================================== */
-var BOOKING_MODAL_HOSTS = ['clone-calendly.vercel.app'];
+var BOOKING_MODAL_HOSTS = ['calendario.domenicocampa.net', 'clone-calendly.vercel.app'];
 
 /* Passa utm/gclid/fbclid alla pagina di prenotazione, cosi' il CRM
    puo' attribuire l'appuntamento alla campagna. Lasciare false finche'
@@ -5312,6 +5312,19 @@ function initCookieBanner(){
   if(!get()) setTimeout(show, 900);
 }
 
+/* Numero WhatsApp: lo leggiamo dal tasto gia' presente nelle schede,
+   cosi' si cambia una volta sola nel content.json. Il valore qui sotto
+   serve solo se quella scheda non c'e'. */
+function waHref(){
+  try{
+    var a = document.querySelector('.bl-button-wa[href*="wa.me/"]')
+         || document.querySelector('.bl-tier a[href*="wa.me/"]')
+         || document.querySelector('a[href*="wa.me/"]');
+    if(a) return a.getAttribute('href');
+  }catch(e){}
+  return 'https://wa.me/393762994046';
+}
+
 /* ==========================================================
    WHATSAPP — al click sui link wa.me si apre un mini-form:
    nome + messaggio -> apre WhatsApp con il testo precompilato
@@ -5432,7 +5445,7 @@ function initBehaviors(){
           '</span>' +
           '<strong class="bl-done-title">' + I18N.blDoneTitle + '</strong>' +
           '<span class="bl-done-text">' + I18N.blDoneText + '</span>' +
-          '<a class="bl-done-wa" href="https://wa.me/393332204059">' +
+          '<a class="bl-done-wa" href="' + waHref() + '">' +
             '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.5L3.5 21l1.6-4.8A8.5 8.5 0 1 1 21 12z"/></svg>' +
             '<span>' + I18N.blDoneHint + '</span>' +
           '</a>';
